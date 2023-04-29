@@ -1,15 +1,19 @@
 
-import javax.swing.JFrame;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 
-/**
- *
- * @author baibu
- */
+import java.sql.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+
+
 public class RegisterForm extends javax.swing.JFrame {
 
     /**
@@ -17,8 +21,25 @@ public class RegisterForm extends javax.swing.JFrame {
      */
     public RegisterForm() {
         initComponents();
+        Connect();
     }
-
+    
+    Connection con;
+    PreparedStatement pst;
+    ResultSet rs;
+    
+    
+    public void Connect(){
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            con = DriverManager.getConnection("jdbc:mysql://localhost/user_register", "root", "");
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+            
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -32,15 +53,18 @@ public class RegisterForm extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jLabelRegister1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_Username = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jPasswordField1 = new javax.swing.JPasswordField();
+        jPasswordtField_Password = new javax.swing.JPasswordField();
         jLabel6 = new javax.swing.JLabel();
-        jPasswordField2 = new javax.swing.JPasswordField();
-        jButtonOK = new javax.swing.JButton();
+        jPasswordField_ConfirmPassword = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
-        jLabelRegister2 = new javax.swing.JLabel();
+        jLabelLoginForm = new javax.swing.JLabel();
+        jButtonSignUp = new javax.swing.JButton();
+        jLabel_Username_Message = new javax.swing.JLabel();
+        jLabel_Password_Message = new javax.swing.JLabel();
+        jLabel_ConPassword_Message = new javax.swing.JLabel();
         jLabelRegister = new javax.swing.JLabel();
         jLabelClose = new javax.swing.JLabel();
         jLabelMin = new javax.swing.JLabel();
@@ -60,11 +84,11 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabelRegister1.setForeground(new java.awt.Color(255, 255, 255));
         jLabelRegister1.setText("REGISTER");
 
-        jTextField1.setBackground(java.awt.SystemColor.control);
-        jTextField1.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        jTextField_Username.setBackground(java.awt.SystemColor.control);
+        jTextField_Username.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jTextField_Username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                jTextField_UsernameActionPerformed(evt);
             }
         });
 
@@ -78,42 +102,37 @@ public class RegisterForm extends javax.swing.JFrame {
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Password");
 
-        jPasswordField1.setBackground(java.awt.SystemColor.control);
-        jPasswordField1.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jPasswordtField_Password.setBackground(java.awt.SystemColor.control);
+        jPasswordtField_Password.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
 
         jLabel6.setBackground(new java.awt.Color(0, 0, 0));
         jLabel6.setFont(new java.awt.Font("Leelawadee UI", 0, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Confirm Password ");
 
-        jPasswordField2.setBackground(java.awt.SystemColor.control);
-        jPasswordField2.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
-
-        jButtonOK.setBackground(new java.awt.Color(0, 0, 0));
-        jButtonOK.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
-        jButtonOK.setForeground(new java.awt.Color(255, 255, 255));
-        jButtonOK.setText("Register");
-        jButtonOK.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButtonOKMouseClicked(evt);
-            }
-        });
-        jButtonOK.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonOKActionPerformed(evt);
-            }
-        });
+        jPasswordField_ConfirmPassword.setBackground(java.awt.SystemColor.control);
+        jPasswordField_ConfirmPassword.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Leelawadee", 0, 13)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Already a member?");
 
-        jLabelRegister2.setFont(new java.awt.Font("Leelawadee UI", 1, 13)); // NOI18N
-        jLabelRegister2.setText("Sign in now");
-        jLabelRegister2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jLabelRegister2.addMouseListener(new java.awt.event.MouseAdapter() {
+        jLabelLoginForm.setFont(new java.awt.Font("Leelawadee UI", 1, 13)); // NOI18N
+        jLabelLoginForm.setText("Sign In ");
+        jLabelLoginForm.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jLabelLoginForm.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabelRegister2MouseClicked(evt);
+                jLabelLoginFormFormMouseClicked(evt);
+            }
+        });
+
+        jButtonSignUp.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonSignUp.setFont(new java.awt.Font("Leelawadee UI", 1, 12)); // NOI18N
+        jButtonSignUp.setForeground(new java.awt.Color(255, 255, 255));
+        jButtonSignUp.setText("Sign Up");
+        jButtonSignUp.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButtonSignUpMouseClicked(evt);
             }
         });
 
@@ -121,6 +140,10 @@ public class RegisterForm extends javax.swing.JFrame {
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButtonSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(128, 128, 128))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
@@ -128,21 +151,21 @@ public class RegisterForm extends javax.swing.JFrame {
                         .addComponent(jLabelRegister1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(49, 49, 49)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
-                            .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordtField_Password, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+                            .addComponent(jTextField_Username, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                             .addComponent(jLabel6)
-                            .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jPasswordField_ConfirmPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(24, 24, 24)
+                                .addGap(36, 36, 36)
                                 .addComponent(jLabel2)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabelRegister2))))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(133, 133, 133)
-                        .addComponent(jButtonOK, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabelLoginForm))
+                            .addComponent(jLabel_ConPassword_Message, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_Password_Message, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel_Username_Message, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -153,21 +176,27 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGap(30, 30, 30)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jTextField_Username, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_Username_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordtField_Password, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel_Password_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jPasswordField2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButtonOK, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPasswordField_ConfirmPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel_ConPassword_Message, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(26, 26, 26)
+                .addComponent(jButtonSignUp, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(49, 49, 49)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jLabelRegister2))
+                    .addComponent(jLabelLoginForm))
                 .addGap(24, 24, 24))
         );
 
@@ -242,7 +271,7 @@ public class RegisterForm extends javax.swing.JFrame {
                     .addComponent(jLabelMin))
                 .addGap(41, 41, 41)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -271,24 +300,127 @@ public class RegisterForm extends javax.swing.JFrame {
         lgf.setVisible(true);
     }//GEN-LAST:event_jLabelCloseMouseClicked
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void jTextField_UsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField_UsernameActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_jTextField_UsernameActionPerformed
 
-    private void jButtonOKMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonOKMouseClicked
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonOKMouseClicked
-
-    private void jButtonOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonOKActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButtonOKActionPerformed
-
-    private void jLabelRegister2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelRegister2MouseClicked
+    private void jLabelLoginFormFormMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabelLoginFormFormMouseClicked
         // TODO add your handling code here:
         this.dispose();
         LoginForm lgf = new LoginForm();
         lgf.setVisible(true);
-    }//GEN-LAST:event_jLabelRegister2MouseClicked
+    }//GEN-LAST:event_jLabelLoginFormFormMouseClicked
+
+// function to check if the username already exist in database table
+public boolean checkUsername(String username)
+{
+    PreparedStatement ps = null;
+    ResultSet rs = null;
+    boolean checkUser = false;
+    String query = "SELECT * FROM `register` WHERE `username` =?";
+    
+    try {
+        ps = con.prepareStatement(query);
+        ps.setString(1, username);
+        rs = ps.executeQuery();
+        
+        if(rs.next())
+        {
+            checkUser = true;
+        }
+    } catch (SQLException ex) {
+        Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+    } finally {
+        try {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ps != null) {
+                ps.close();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+     return checkUser;
+}
+    private void jButtonSignUpMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButtonSignUpMouseClicked
+        String username = jTextField_Username.getText();
+        String password = String.valueOf(jPasswordtField_Password.getPassword());
+        String conpassword = String.valueOf(jPasswordField_ConfirmPassword.getPassword());
+        
+//        jTextField_Username.setText(jTextField_Username.getText());
+//        jPasswordtField_Password.setText(String.valueOf(jPasswordtField_Password.getPassword()));
+//        jPasswordField_ConfirmPassword.setText(String.valueOf(jPasswordField_ConfirmPassword.getPassword()));
+        
+        if (username.trim().isEmpty() && password.trim().isEmpty()){
+            jLabel_Username_Message.setText("Please enter username.");
+            jLabel_Password_Message.setText("Please enter password.");
+//            JOptionPane.showMessageDialog(null, "Please Enter Username");
+
+
+
+
+        } else if (username.trim().isEmpty()){
+            jLabel_Username_Message.setText("Please enter username.");
+//            JOptionPane.showMessageDialog(null, "Please Enter Password");
+
+            jLabel_Password_Message.setText("");
+            jLabel_ConPassword_Message.setText("");
+
+
+        } else if (password.trim().isEmpty()){
+            jLabel_Password_Message.setText("Please enter password.");
+//            JOptionPane.showMessageDialog(null, "Please Enter Password");
+
+            jLabel_Username_Message.setText("");
+            jLabel_ConPassword_Message.setText("");
+
+
+        } else if (!password.equals(conpassword)){
+            jLabel_ConPassword_Message.setText("The passwords do not match.");
+//            JOptionPane.showMessageDialog(null, "Passwords don't Match");
+
+            jLabel_Username_Message.setText("");
+            jLabel_Password_Message.setText("");
+
+
+        } else if (checkUsername(username)){
+            jLabel_Username_Message.setText("The username already exist.");
+//            JOptionPane.showMessageDialog(null, "This Username Already Exist");
+
+
+
+        }else{
+            
+            try {
+                // TODO add your handling code here:
+                pst = con.prepareStatement("INSERT INTO register(username, password)VALUES(?,?)");
+                pst.setString(1, username);
+                pst.setString(2, password);
+
+                int k=pst.executeUpdate();
+
+                if (k==1){
+                    JOptionPane.showMessageDialog(this, "Successfully!");
+                    jTextField_Username.setText("");
+                    jPasswordtField_Password.setText("");
+                    jPasswordField_ConfirmPassword.setText("");
+                    
+                    jLabel_Username_Message.setText("");
+                    jLabel_Password_Message.setText("");
+                    jLabel_ConPassword_Message.setText("");
+                    
+                }else{
+                    JOptionPane.showMessageDialog(this, "Registeration Failed!");
+
+                }
+            } catch (SQLException ex) {
+                Logger.getLogger(RegisterForm.class.getName()).log(Level.SEVERE, null, ex);
+                }
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSignUpMouseClicked
+
 
     /**
      * @param args the command line arguments
@@ -326,21 +458,24 @@ public class RegisterForm extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonOK;
+    private javax.swing.JButton jButtonSignUp;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabelClose;
+    private javax.swing.JLabel jLabelLoginForm;
     private javax.swing.JLabel jLabelMin;
     private javax.swing.JLabel jLabelRegister;
     private javax.swing.JLabel jLabelRegister1;
-    private javax.swing.JLabel jLabelRegister2;
+    private javax.swing.JLabel jLabel_ConPassword_Message;
+    private javax.swing.JLabel jLabel_Password_Message;
+    private javax.swing.JLabel jLabel_Username_Message;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JPasswordField jPasswordField2;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPasswordField jPasswordField_ConfirmPassword;
+    private javax.swing.JPasswordField jPasswordtField_Password;
+    private javax.swing.JTextField jTextField_Username;
     // End of variables declaration//GEN-END:variables
 }
