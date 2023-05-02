@@ -576,7 +576,7 @@ public class RegisterForm extends javax.swing.JFrame {
                                 // username already exists in the database
                                 // handle the error or show an error message to the user
                                 jLabel_Username_Message.setVisible(true);
-                                jLabel_Username_Message.setText("Email already exists!");
+                                jLabel_Username_Message.setText("Username already exists!");
                             } else {
                                 // username does not exist in the database, proceed to register the new user
                                 registerNewUser(email, username, password, conpassword);
