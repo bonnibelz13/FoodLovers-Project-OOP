@@ -1,3 +1,6 @@
+
+import javax.swing.DefaultListModel;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -25,75 +28,81 @@ public class AddMenuGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        jTextField1 = new javax.swing.JTextField();
+        tfName = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
-        jComboBox1 = new javax.swing.JComboBox<>();
-        jButton2 = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        areaMethod = new javax.swing.JTextArea();
+        addNewMenu = new javax.swing.JButton();
+        foodPic = new javax.swing.JLabel();
+        btnUploadPic = new javax.swing.JButton();
+        tfIngredientDetail = new javax.swing.JTextField();
+        categoryBox = new javax.swing.JComboBox<>();
+        btnAddIngredient = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        ingredientList = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
-        jTextField1.setText("Name");
-        jTextField1.setToolTipText("");
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        tfName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        tfName.setText("Name");
+        tfName.setToolTipText("");
+        tfName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                tfNameActionPerformed(evt);
             }
         });
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Method");
-        jScrollPane1.setViewportView(jTextArea1);
+        areaMethod.setColumns(20);
+        areaMethod.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        areaMethod.setLineWrap(true);
+        areaMethod.setRows(5);
+        areaMethod.setText("Method");
+        jScrollPane1.setViewportView(areaMethod);
 
-        jButton1.setBackground(new java.awt.Color(255, 49, 49));
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Add");
+        addNewMenu.setBackground(new java.awt.Color(255, 49, 49));
+        addNewMenu.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        addNewMenu.setForeground(new java.awt.Color(255, 255, 255));
+        addNewMenu.setText("Add");
 
-        jLabel2.setBackground(new java.awt.Color(255, 250, 228));
-        jLabel2.setForeground(new java.awt.Color(255, 250, 228));
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddPhoto_icon_v2.png"))); // NOI18N
-        jLabel2.setText("Photo");
+        foodPic.setBackground(new java.awt.Color(255, 250, 228));
+        foodPic.setForeground(new java.awt.Color(255, 250, 228));
+        foodPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        foodPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/AddPhoto_icon_v2.png"))); // NOI18N
+        foodPic.setText("Photo");
 
-        jButton3.setBackground(new java.awt.Color(255, 250, 228));
-        jButton3.setForeground(new java.awt.Color(166, 166, 166));
-        jButton3.setText("Upload flie");
+        btnUploadPic.setBackground(new java.awt.Color(255, 250, 228));
+        btnUploadPic.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        btnUploadPic.setForeground(new java.awt.Color(166, 166, 166));
+        btnUploadPic.setText("Upload flie");
 
-        jTextField2.setText("Ingredient");
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
+        tfIngredientDetail.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        tfIngredientDetail.setText("Ingredient");
+        tfIngredientDetail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
+                tfIngredientDetailActionPerformed(evt);
             }
         });
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Category", "Item 2", "Item 3", "Item 4" }));
-        jComboBox1.setToolTipText("");
-        jComboBox1.addActionListener(new java.awt.event.ActionListener() {
+        categoryBox.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        categoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Category", "Item 2", "Item 3", "Item 4" }));
+        categoryBox.setToolTipText("");
+        categoryBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jComboBox1ActionPerformed(evt);
+                categoryBoxActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(255, 49, 49));
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnAddIngredient.setBackground(new java.awt.Color(255, 49, 49));
+        btnAddIngredient.setForeground(new java.awt.Color(255, 255, 255));
+        btnAddIngredient.setText("+");
+        btnAddIngredient.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnAddIngredientActionPerformed(evt);
             }
         });
 
-        jTextArea2.setColumns(20);
-        jTextArea2.setRows(5);
-        jScrollPane2.setViewportView(jTextArea2);
+        ingredientList.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        jScrollPane3.setViewportView(ingredientList);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -103,75 +112,83 @@ public class AddMenuGUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(addNewMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(35, 35, 35)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jTextField2)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jButton2))
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jTextField1)
-                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 291, Short.MAX_VALUE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(tfIngredientDetail, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(btnAddIngredient))
+                                        .addComponent(categoryBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(tfName))
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 291, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(79, Short.MAX_VALUE)
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButton3)
+                                        .addComponent(btnUploadPic)
                                         .addGap(115, 115, 115))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(59, 59, 59)))))
+                                        .addComponent(foodPic, javax.swing.GroupLayout.PREFERRED_SIZE, 240, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(37, 37, 37)))))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 525, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(35, 35, 35))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(35, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addContainerGap(34, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(foodPic, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnUploadPic)
+                        .addGap(11, 11, 11)
+                        .addComponent(tfName, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(categoryBox, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane2))
+                            .addComponent(tfIngredientDetail, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnAddIngredient, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButton1)
+                .addComponent(addNewMenu)
                 .addGap(35, 35, 35))
         );
 
         pack();
     }// </editor-fold>                        
+    
+    
+    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {                                       
+        // TODO add your handling code here:
+    }                                      
+    
+    DefaultListModel model = new DefaultListModel();
+    private void btnAddIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        // set model list
+        ingredientList.setModel(model);
+        // add ingredients
+        if ((tfIngredientDetail.getText().equals(""))==false){
+            model.addElement(tfIngredientDetail.getText().trim());
+        }
+    }                                                
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {                                            
+    private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {                                         
+    private void tfIngredientDetailActionPerformed(java.awt.event.ActionEvent evt) {                                                   
         // TODO add your handling code here:
-    }                                        
-
-    private void jComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {                                           
-        // TODO add your handling code here:
-    }                                          
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
+    }                                                  
 
     /**
      * @param args the command line arguments
@@ -209,16 +226,16 @@ public class AddMenuGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify                     
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JButton addNewMenu;
+    private javax.swing.JTextArea areaMethod;
+    private javax.swing.JButton btnAddIngredient;
+    private javax.swing.JButton btnUploadPic;
+    private javax.swing.JComboBox<String> categoryBox;
+    private javax.swing.JLabel foodPic;
+    private javax.swing.JList<String> ingredientList;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTextField tfIngredientDetail;
+    private javax.swing.JTextField tfName;
     // End of variables declaration                   
 }
