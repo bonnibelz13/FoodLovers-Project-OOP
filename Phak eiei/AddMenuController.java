@@ -7,9 +7,8 @@ public class AddMenuController implements ActionListener {
     private boolean isOK;
 
     public AddMenuController() {
-        this.view = new AddMenuGUI();
-        this.model = new AddMenuModel();
-        view.getBtnAddMenu().addActionListener(this);
+        tthis.model = new AddMenuModel();
+        initializeGUI();
    
         
           
@@ -34,6 +33,11 @@ public class AddMenuController implements ActionListener {
                 //isOK = true;
                 view.dispose();
         }
+    }
+    private void initializeGUI() {
+        view = new AddMenuGUI();
+        view.getBtnAddMenu().addActionListener(this);
+        view.setVisible(true);
     }
 
     
