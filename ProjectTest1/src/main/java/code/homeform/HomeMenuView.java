@@ -677,7 +677,7 @@ public class HomeMenuView extends javax.swing.JFrame {
         MenuDetail menudetail = new MenuDetail();
 
         
-        menudetail.setPreferredSize(new Dimension(1020, 600));
+        menudetail.setPreferredSize(new Dimension(1020, 630));
         menudetail.pack();
         menudetail.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         menudetail.setVisible(true);

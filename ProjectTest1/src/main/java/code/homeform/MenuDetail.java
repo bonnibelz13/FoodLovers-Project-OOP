@@ -85,25 +85,11 @@ public class MenuDetail extends javax.swing.JFrame {
         jLabel7.setText("Category");
         jDesktopPane1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 360, 110, 40));
 
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
         jButtonFav.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButtonFav.setText("Favourite!");
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(68, 68, 68)
-                .addComponent(jButtonFav)
-                .addContainerGap(869, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(484, Short.MAX_VALUE)
-                .addComponent(jButtonFav, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
-        );
+        jPanel1.add(jButtonFav, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 484, -1, 58));
 
         jDesktopPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 600));
 
