@@ -4,35 +4,44 @@ import java.awt.event.ActionListener;
 public class AddMenuController implements ActionListener {
     private AddMenuGUI view;
     private AddMenuModel model;
-    private boolean isOK;
+    
 
     public AddMenuController() {
-        tthis.model = new AddMenuModel();
+        this.model = new AddMenuModel();
         initializeGUI();
+        view.getFrame().addWindowListener(this);
    
         
           
     }
 
     public static void main(String[] args) {
-        new AddMenuController();
+        SwingUtilities.invokeLater(new Runnable()
+        {
+            @Override
+            public void run()
+            { 
+                AddMenuGUI show = new AddMenuGUI();
+                show.setVisible(true);
+            }
+        });
     }
 
-    public boolean isOK() {
-        return isOK;
-    }
+    
 
+    @Override
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource().equals(view.getBtnAddMenu())){
          // Create newFood object with data from text fields, including name, price, and type
-                Food newFood = new Food(view.getTfName().getText(),
-                        view.getAreaMethod().getText(), (String) view.getCategoryBox().getSelectedItem());
-
-                // Set isOK to true and close the dialog
-                //isOK = true;
-                view.dispose();
+                Food newFood = new Food();
+                newFood.setNameFood(view.getTfName().getText());
+                newFood.setFoodType((String) view.getCategoryBox().getSelectedItem());
+                view.getFrame().dispose();
+            
+                JOptionPane.showMessageDialog(null, "Done it.", "", JOptionPane.PLAIN_MESSAGE);
         }
+        
     }
     private void initializeGUI() {
         view = new AddMenuGUI();
