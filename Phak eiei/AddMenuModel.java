@@ -34,7 +34,7 @@ public class AddMenuModel  {
        // บันทึกข้อมูลลงในไฟล์ "FoodData.data" โดยใช้ ObjectOutputStream เพื่อเขียน object
         // List ลงไปในไฟล์ หลังจากนั้นปิด ObjectOutputStream
 
-    private void saveData() {
+    public void saveData() {
         try {
                 //สร้าง Object ชื่อ out ของคลาส ObjectOutputStream และใช้ตัวแปรชนิด FileOutputStream เพื่อสร้างไฟล์ "FoodData" ขึ้นมา
                 ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("FoodData.data")); 
@@ -53,7 +53,7 @@ public class AddMenuModel  {
 
         // ตรวจสอบว่าไฟล์ "FoodData.data" มีอยู่หรือไม่
         // หากมีให้โหลดข้อมูลจากไฟล์ดังกล่าวเพื่อเตรียมใช้งาน
-    private void loadData() {
+    public void loadData() {
         File file = new File("FoodData.data"); // สร้างออบเจกต์ File เพื่อตรวจสอบไฟล์ "FoodData.data"
         if (file.exists()) { // ตรวจสอบว่าไฟล์ "FoodData.data" มีอยู่หรือไม่
             try {
