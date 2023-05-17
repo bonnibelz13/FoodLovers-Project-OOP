@@ -19,7 +19,9 @@ public class AddMenuGUI extends javax.swing.JFrame {
      * Creates new form AddMenuGUI
      */
     public AddMenuGUI() {
+        frame = this;
         initComponents();
+        
     }
 
     /**
@@ -215,8 +217,8 @@ public class AddMenuGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                                  
     
-    private void btnAddMenuActionPerformed(java.awt.event.ActionEvent evt) {                                           
-       
+    private void btnAddMenuActionPerformed(java.awt.event.ActionEvent evt) {
+        this.setVisible(false);
     }                                          
 
     private void btnDelIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
@@ -316,6 +318,10 @@ public class AddMenuGUI extends javax.swing.JFrame {
     public JTextField getTfName() {
         return tfName;
     }
+    public JFrame getFrame() {
+        return frame;
+     }
+
     
 
     // Variables declaration - do not modify                     
@@ -331,5 +337,6 @@ public class AddMenuGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTextField tfIngredientDetail;
     private javax.swing.JTextField tfName;
+    private JFrame frame;
     // End of variables declaration                   
 }
