@@ -304,9 +304,6 @@ public class RegisterForm extends javax.swing.JFrame {
 
         LoginForm lgf = new LoginForm();
         lgf.setVisible(true);
-        lgf.pack();
-        lgf.setLocationRelativeTo(null);
-        lgf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     }//GEN-LAST:event_jLabelLoginFormFormMouseClicked
 

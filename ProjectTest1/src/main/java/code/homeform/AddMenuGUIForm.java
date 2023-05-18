@@ -220,9 +220,22 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //------------------------
+    // DishName.
+    //------------------------
+    
+    
     private void jTextField1_DishNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1_DishNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1_DishNameActionPerformed
+    
+    
+
+    //------------------------
+    // Add an Ingredient.
+    //------------------------
     
     
     DefaultListModel mod = new DefaultListModel();
@@ -241,11 +254,22 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jTextField2_Ingredients.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    //--------------------------------------------------------------------------
+    // When user clicks TextFieldIngredient -> setTextFieldIngredient to null.
+    //--------------------------------------------------------------------------
+    
     private void jTextField2_IngredientsMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField2_IngredientsMouseClicked
         // TODO add your handling code here:
         jTextField2_Ingredients.setText("");
     }//GEN-LAST:event_jTextField2_IngredientsMouseClicked
 
+    
+   
+    //------------------------
+    // Delete an Ingredient.
+    //------------------------
+    
+    
     private void jButton_DelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DelActionPerformed
         // TODO add your handling code here:
         int selectedIndex = jList1_Ingredients.getSelectedIndex(); 
@@ -254,6 +278,13 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         }   
     }//GEN-LAST:event_jButton_DelActionPerformed
 
+    
+    
+    //------------------------
+    // Upload pic.
+    //------------------------
+    
+    
     private void jButton3_UploadPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_UploadPicActionPerformed
         // TODO add your handling code here:
         JFileChooser fileChooser = new JFileChooser();
@@ -275,10 +306,19 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton3_UploadPicActionPerformed
     
+    
+    
+    
+    //--------------------------------------------------------------------------------------------
+    // Add new Menu to Table. And export it to File "data.csv" / export picture to folder "pics".
+    //--------------------------------------------------------------------------------------------
+    
 
     private void jButton1_AddMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_AddMenuActionPerformed
         // TODO add your handling code here:
         DefaultListModel<String> listModel = (DefaultListModel<String>) jList1_Ingredients.getModel();
+        
+        
         String dishName = jTextField1_DishName.getText();
         String category = jComboBox1_Category.getSelectedItem().toString();
         String description = jTextArea1_Discription.getText();
@@ -300,6 +340,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
         
         
+        // I tried to save pic to folder name "pics".
+        
         JTable table = MenuTable.getjTable1(); // เปลี่ยน MenuTable.getjTable1() เป็นออบเจ็กต์ JTable ของคุณ
         int imageColumnIndex = 4; // ดัชนีของคอลัมน์ที่บันทึกที่อยู่ของรูปภาพ
         String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // ตำแหน่งที่ต้องการเก็บรูปภาพลงในเครื่อง
@@ -312,6 +354,14 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         
     }//GEN-LAST:event_jButton1_AddMenuActionPerformed
 
+    
+    
+    
+    //-----------------------------------------------
+    // Import data in "data.csv" to Table2.
+    //-----------------------------------------------
+    
+    
     private void jButton1_ImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ImportActionPerformed
         // TODO add your handling code here:
         
@@ -360,13 +410,26 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
             }
         });
     }
+    
+    //--------------------------------------------------------
+    // This Method is Checking Text in Ingredient TextField.
+    //--------------------------------------------------------
+    
     public static boolean isIngredientValid(String ingredient) {
-        String ingredientRegex = "^[A-Za-z0-9(/)]+$";
+        
+        // not allow the first txt to be "".
+        String ingredientRegex = "^[^\\s][A-Za-z0-9(/\\.)\\s]+$";
         Pattern pattern = Pattern.compile(ingredientRegex);
         Matcher matcher = pattern.matcher(ingredient);
         return matcher.matches();
 }
 
+    
+    //-----------------------------
+    // Getter and Setter.
+    //-----------------------------
+    
+    
     public DefaultListModel getMod() {
         return mod;
     }
