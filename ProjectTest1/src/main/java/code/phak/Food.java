@@ -1,10 +1,12 @@
 package code.phak;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Food implements Serializable {
     private String NameFood;
-    private String FoodIng; // Food Ingredient
+    private List<String> FoodIngList; // List to store food ingredients
     private String FoodType;
     private String FoodMethod;
     //ระบุเวอร์ชันของ Class ที่ถูกserialize เพื่อให้โปรแกรมที่ deserializeเข้าใจได้ว่าClass นั้นเป็นเวอร์ชันเดียวกันหรือไม่
@@ -16,14 +18,14 @@ public class Food implements Serializable {
 
     public Food() {
         this.NameFood = "";
-        this.FoodIng = "";
+        this.FoodIngList = new ArrayList<>();
         this.FoodType = "";
         this.FoodMethod="";
     }
 
-    public Food(String NameFood, String FoodIngd, String FoodType,String FoodMethod) {
+    public Food(String NameFood, List<String> FoodIngList, String FoodType,String FoodMethod) {
         this.NameFood = NameFood;
-        this.FoodIng = FoodIngd;// Food Ingredient
+        this.FoodIngList = FoodIngList;
         this.FoodType = FoodType;
         this.FoodMethod=FoodMethod;
     }
@@ -44,12 +46,12 @@ public class Food implements Serializable {
         this.NameFood = NameFood;
     }
 
-    public String getFoodIngd() {
-        return FoodIng;
+    public List<String> getFoodIngList() {
+        return FoodIngList;
     }
 
-    public void setFoodIngd(String FoodIngd) {
-        this.FoodIng = FoodIngd;
+    public void setFoodIngList(List<String> FoodIngList) {
+        this.FoodIngList = FoodIngList;
     }
 
     public String getFoodType() {
