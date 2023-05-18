@@ -47,7 +47,7 @@ public class AddMenuController implements ActionListener,WindowListener {
                 Food newFood = new Food();
                 newFood.setNameFood(view.getTfName().getText()); // Name
                 newFood.setFoodType((String) view.getCategoryBox().getSelectedItem()); // Type
-                newFood.setFoodIngd(view.getTfIngredientDetail().getText()); //Ingredients
+                newFood.setFoodIngd(view.getIngredientList().getSelectedValuesList()); //Ingredients
                 newFood.setFoodMethod(view.getTfIngredientDetail().getText()); //Method
                 model.getFoodList().add(newFood);//
                 model.saveData();

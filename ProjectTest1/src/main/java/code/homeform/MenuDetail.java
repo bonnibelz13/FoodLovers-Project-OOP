@@ -50,7 +50,6 @@ public class MenuDetail extends javax.swing.JFrame {
         jDesktopPane1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\src\\main\\java\\code\\icon\\img.png")); // NOI18N
         jDesktopPane1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 35, 380, 250));
 
         jLabel5.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -90,6 +89,11 @@ public class MenuDetail extends javax.swing.JFrame {
 
         jButtonFav.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jButtonFav.setText("Favourite!");
+        jButtonFav.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFavActionPerformed(evt);
+            }
+        });
         jPanel1.add(jButtonFav, new org.netbeans.lib.awtextra.AbsoluteConstraints(68, 484, -1, 58));
 
         jDesktopPane1.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1020, 600));
@@ -123,6 +127,10 @@ public class MenuDetail extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jButtonFavActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFavActionPerformed
+        // set fav. status in table to true (MenuTable.getValueAt( , 1))
+    }//GEN-LAST:event_jButtonFavActionPerformed
 
     
     
