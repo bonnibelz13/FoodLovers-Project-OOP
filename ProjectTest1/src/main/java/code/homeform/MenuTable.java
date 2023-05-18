@@ -1,5 +1,8 @@
 package code.homeform;
 
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+
 
 
     // ----------------------------------------------------------------
@@ -43,14 +46,14 @@ public class MenuTable extends javax.swing.JFrame {
 
             },
             new String [] {
-                "Fav. status", "No.", "Name", "Type", "Ingrediets", "Method"
+                "Name", "Type", "Ingrediets", "Method", "Pic"
             }
         ) {
             Class[] types = new Class [] {
-                java.lang.Boolean.class, java.lang.Integer.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+                java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class, java.lang.Object.class
             };
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false
+                false, false, false, false, false
             };
 
             public Class getColumnClass(int columnIndex) {
@@ -68,7 +71,6 @@ public class MenuTable extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(2).setResizable(false);
             jTable1.getColumnModel().getColumn(3).setResizable(false);
             jTable1.getColumnModel().getColumn(4).setResizable(false);
-            jTable1.getColumnModel().getColumn(5).setResizable(false);
         }
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -90,6 +92,9 @@ public class MenuTable extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    
+    
 
     /**
      * @param args the command line arguments
@@ -126,8 +131,16 @@ public class MenuTable extends javax.swing.JFrame {
         });
     }
 
+    public static JTable getjTable1() {
+        return jTable1;
+    }
+
+    public static void setjTable1(JTable jTable1) {
+        MenuTable.jTable1 = jTable1;
+    }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private static javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
