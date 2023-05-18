@@ -1,5 +1,5 @@
 
-package code.homeform;
+package code.tableData;
 
 import com.opencsv.CSVWriter;
 import java.io.FileWriter;
@@ -12,7 +12,7 @@ public class TableToFileExample {
     public static void main(String[] args) {
         JTable table = new JTable();
         
-        // ... ตัวอย่างการเพิ่มข้อมูลในตาราง ...
+        // ... ตัวอย่างการเพิ่มข้อมูลในตาราง ...ผ
         
         saveTableToFile(table, "data.csv");
     }

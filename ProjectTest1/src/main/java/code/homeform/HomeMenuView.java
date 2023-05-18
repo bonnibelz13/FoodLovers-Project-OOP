@@ -1,5 +1,7 @@
 package code.homeform;
 
+import code.tableData.MenuTable;
+import code.tableData.MenuTable2;
 import code.loginform.LoginForm;
 import code.im.MenuDetailNewJInternalFrame;
 import code.loginform.LoginSystem;
@@ -693,9 +695,16 @@ public class HomeMenuView extends javax.swing.JFrame {
         
         MenuTable menuTable = new MenuTable();
         menuTable.setVisible(rootPaneCheckingEnabled);
-        menuTable.setSize(850, 700);
+        menuTable.setSize(500, 400);
         menuTable.setLocationRelativeTo(null);
         menuTable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        MenuTable2 menuTable2 = new MenuTable2();
+        menuTable2.setVisible(rootPaneCheckingEnabled);
+        menuTable2.setSize(500, 400);
+        menuTable2.setLocationRelativeTo(null);
+        menuTable2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

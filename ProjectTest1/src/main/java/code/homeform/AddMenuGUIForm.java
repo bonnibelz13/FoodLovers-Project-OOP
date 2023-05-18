@@ -1,10 +1,18 @@
 package code.homeform;
 
-import static code.homeform.TableToFileExample.saveTableToFile;
+import code.tableData.MenuTable;
+import code.tableData.TableDataImporter;
+import code.tableData.MenuTable2;
+import code.tableData.ImageRenderer;
+import code.tableData.ImageTableExporter;
+import static code.tableData.TableToFileExample.saveTableToFile;
+import com.opencsv.exceptions.CsvValidationException;
 import java.awt.Image;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.DefaultListModel;
@@ -18,6 +26,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
+import javax.swing.JTable;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -71,6 +80,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1_Ingredients = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
+        jButton1_Import = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -199,6 +209,14 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 
         getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 290, 210));
 
+        jButton1_Import.setText("Import");
+        jButton1_Import.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_ImportActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1_Import, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, -1, -1));
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -280,9 +298,32 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 
         DefaultTableModel model = (DefaultTableModel) MenuTable.getjTable1().getModel();
         model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
-    
+        
+        
+        JTable table = MenuTable.getjTable1(); // เปลี่ยน MenuTable.getjTable1() เป็นออบเจ็กต์ JTable ของคุณ
+        int imageColumnIndex = 4; // ดัชนีของคอลัมน์ที่บันทึกที่อยู่ของรูปภาพ
+        String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // ตำแหน่งที่ต้องการเก็บรูปภาพลงในเครื่อง
+
+        ImageTableExporter exporter = new ImageTableExporter(table, imageColumnIndex, imageFolderPath);
+        exporter.exportImages();
+        
         saveTableToFile(MenuTable.getjTable1(), "data.csv");
+        
+        
     }//GEN-LAST:event_jButton1_AddMenuActionPerformed
+
+    private void jButton1_ImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ImportActionPerformed
+        // TODO add your handling code here:
+        
+        JTable table2 = MenuTable2.getjTable1();
+        TableDataImporter importer = new TableDataImporter(table2);
+        try {
+            importer.importTableDataFromCSV("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\data.csv");
+        } catch (CsvValidationException ex) {
+            Logger.getLogger(AddMenuGUIForm.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_jButton1_ImportActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,6 +398,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_AddMenu;
+    private javax.swing.JButton jButton1_Import;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3_UploadPic;
     private javax.swing.JButton jButton_Del;
