@@ -8,21 +8,24 @@ import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.util.ArrayList;
+import java.util.List;
+import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
 public class AddMenuController implements ActionListener,WindowListener {
     private AddMenuGUI view;
     private AddMenuModel model;
     private boolean isOK;
+    DefaultListModel ingredientListmodel = new DefaultListModel();
+   
 
     public AddMenuController() {
-        this.model = new AddMenuModel();
+        
+        
         initializeGUI();
-        view.getFrame().addWindowListener(this);
         
-        
-        
-          
+
     }
 
     public static void main(String[] args) {
@@ -42,52 +45,40 @@ public class AddMenuController implements ActionListener,WindowListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        
+       
+        
+        
         if (e.getSource().equals(view.getBtnAddMenu())) {
-        // Create newFood object with data from text fields, including name, type, ingredients, and method
-        Food newFood = new Food();
-        newFood.setNameFood(view.getTfName().getText()); // Name
-        newFood.setFoodType((String) view.getCategoryBox().getSelectedItem()); // Type
-        newFood.setFoodIngList(view.getIngredientList().getSelectedValuesList()); // Ingredients
-        newFood.setFoodMethod(view.getTfIngredientDetail().getText()); // Method
-        
-        model.getFoodList().add(newFood);
-        
-        System.out.println("Current contents of foodList:");
-        for (Food food : model.getFoodList()) {
-            System.out.println(food.getNameFood());
-        }
-        
-        System.out.println("Size of foodList: " + model.getFoodList().size());
-        
-        model.saveData();
-        
-        isOK = true;
-        view.getFrame().dispose();
-        
-        JOptionPane.showMessageDialog(null, "Done it.", "", JOptionPane.PLAIN_MESSAGE);
+            // Create newFood object with data from text fields, including name, type, ingredients, and method
+            Food newFood = new Food();
+            newFood.setNameFood(view.getTfName().getText()); // Name
+            newFood.setFoodType((String) view.getCategoryBox().getSelectedItem()); // Type
+            newFood.setFoodIngList(view.getIngredientList().getSelectedValuesList()); // Ingredients
+            newFood.setFoodMethod(view.getTfIngredientDetail().getText()); // Method
+
+            model.getFoodList().add(newFood);
+            model.saveData();
+
+            isOK = true;
+            view.getFrame().dispose();
+
+            JOptionPane.showMessageDialog(null, "Done it.", "", JOptionPane.PLAIN_MESSAGE);
     }
-//        if(e.getSource().equals(view.getBtnAddMenu())){
-//         // Create newFood object with data from text fields, including name, type, ingredients and method
-//                Food newFood = new Food();
-//                newFood.setNameFood(view.getTfName().getText()); // Name
-//                newFood.setFoodType((String) view.getCategoryBox().getSelectedItem()); // Type
-//                newFood.setFoodIngd(view.getIngredientList().getSelectedValue()); //Ingredients
-//                newFood.setFoodMethod(view.getAreaMethod().getText()); //Method
-//                model.getFoodList().add(newFood);//
-//                model.saveData();
-//                
-//                // set boolean isOK= true
-//                isOK = true;
-//                view.getFrame().dispose();
-//                
-//        }
-//        // when press Add Menu close JFrame and show JOptopnPane
-//        JOptionPane.showMessageDialog(null, "Done it.", "", JOptionPane.PLAIN_MESSAGE);
-//        
+        view.getIngredientList().setModel(ingredientListmodel);
+        // add ingredients
+        if ((view.getTfIngredientDetail().getText().equals(""))==false){
+            view.getIngredientList().setModel(ingredientListmodel);
+            ingredientListmodel.addElement(view.getTfIngredientDetail().getText().trim());
+        }
     }
     private void initializeGUI() {
-        view = new AddMenuGUI();
+        
+        this.view = new AddMenuGUI();
+        this.model = new AddMenuModel();
         view.getBtnAddMenu().addActionListener(this);
+        view.getBtnAddIngredient().addActionListener(this);
+        view.getBtnDelIngredient().addActionListener(this);
         view.setVisible(true);
     }
 
