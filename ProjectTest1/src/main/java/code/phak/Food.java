@@ -61,5 +61,9 @@ public class Food implements Serializable {
     public void setFoodType(String FoodType) {
         this.FoodType = FoodType;
     }
+
+    void setFoodIngd(String selectedValue) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+    }
     
 }
