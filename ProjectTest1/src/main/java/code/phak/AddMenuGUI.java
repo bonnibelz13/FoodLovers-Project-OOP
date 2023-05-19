@@ -54,11 +54,11 @@ public class AddMenuGUI extends javax.swing.JFrame {
         tfName.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         tfName.setText("Name");
         tfName.setToolTipText("");
-        tfName.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfNameActionPerformed(evt);
-            }
-        });
+//        tfName.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                tfNameActionPerformed(evt);
+//            }
+//        });
 
         areaMethod.setColumns(20);
         areaMethod.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
@@ -79,29 +79,29 @@ public class AddMenuGUI extends javax.swing.JFrame {
 
         tfIngredientDetail.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         tfIngredientDetail.setText("Ingredient");
-        tfIngredientDetail.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                tfIngredientDetailActionPerformed(evt);
-            }
-        });
+        //tfIngredientDetail.addActionListener(new java.awt.event.ActionListener() {
+            //public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //tfIngredientDetailActionPerformed(evt);
+            //}
+        //});
 
         categoryBox.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         categoryBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Category", "Item 2", "Item 3", "Item 4" }));
         categoryBox.setToolTipText("");
-        categoryBox.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                categoryBoxActionPerformed(evt);
-            }
-        });
+        //categoryBox.addActionListener(new java.awt.event.ActionListener() {
+            //public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //categoryBoxActionPerformed(evt);
+            //}
+        //});
 
         btnAddIngredient.setBackground(new java.awt.Color(255, 49, 49));
         btnAddIngredient.setForeground(new java.awt.Color(255, 255, 255));
         btnAddIngredient.setText("+");
-        btnAddIngredient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddIngredientActionPerformed(evt);
-            }
-        });
+        //btnAddIngredient.addActionListener(new java.awt.event.ActionListener() {
+            //public void actionPerformed(java.awt.event.ActionEvent evt) {
+                //btnAddIngredientActionPerformed(evt);
+            //}
+        //});
 
         ingredientList.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         jScrollPane3.setViewportView(ingredientList);
@@ -109,20 +109,20 @@ public class AddMenuGUI extends javax.swing.JFrame {
         btnAddMenu.setBackground(new java.awt.Color(255, 49, 49));
         btnAddMenu.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
         btnAddMenu.setText("Add");
-        btnAddMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAddMenuActionPerformed(evt);
-            }
-        });
+//        btnAddMenu.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                btnAddMenuActionPerformed(evt);
+//            }
+//        });
 
         btnDelIngredient.setBackground(new java.awt.Color(255, 49, 49));
         btnDelIngredient.setForeground(new java.awt.Color(255, 255, 255));
         btnDelIngredient.setText("-");
-        btnDelIngredient.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDelIngredientActionPerformed(evt);
-            }
-        });
+//        btnDelIngredient.addActionListener(new java.awt.event.ActionListener() {
+//            public void actionPerformed(java.awt.event.ActionEvent evt) {
+//                btnDelIngredientActionPerformed(evt);
+//            }
+//        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -194,40 +194,41 @@ public class AddMenuGUI extends javax.swing.JFrame {
     }// </editor-fold>                        
     
     
-    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {                                       
-        // TODO add your handling code here:
-    }                                      
-    
-    DefaultListModel model = new DefaultListModel();
-    List<String> lst = new ArrayList<String>();
-    private void btnAddIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        // set model list
-        ingredientList.setModel(model);
-        // add ingredients
-        if ((tfIngredientDetail.getText().equals(""))==false){
-            model.addElement(tfIngredientDetail.getText().trim());
-            lst.add(tfIngredientDetail.getText());
-        }
-    }                                                
+//    private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {                                       
+//        // TODO add your handling code here:
+//    }                                      
+//    
+//    DefaultListModel model = new DefaultListModel();
+//    List<String> lst = new ArrayList<String>();
+//    private void btnAddIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+//        // set model list
+//        ingredientList.setModel(model);
+//        // add ingredients
+//        if ((tfIngredientDetail.getText().equals(""))==false){
+//            model.addElement(tfIngredientDetail.getText().trim());
+//            lst.add(tfIngredientDetail.getText());
+//        }
+//    }                                                
+//
+//    private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {                                            
+//        // TODO add your handling code here:
+//    }                                           
+//
+//    private void tfIngredientDetailActionPerformed(java.awt.event.ActionEvent evt) {                                                   
+//        // TODO add your handling code here:
+//    }                                                  
+//    
+//    private void btnAddMenuActionPerformed(java.awt.event.ActionEvent evt) {
+//        AddMenuController control = new AddMenuController();
+//        control.actionPerformed(evt);
+//    }                                          
 
-    private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {                                            
-        // TODO add your handling code here:
-    }                                           
-
-    private void tfIngredientDetailActionPerformed(java.awt.event.ActionEvent evt) {                                                   
-        // TODO add your handling code here:
-    }                                                  
-    
-    private void btnAddMenuActionPerformed(java.awt.event.ActionEvent evt) {                                           
-       this.setVisible(false);//////////////
-    }                                          
-
-    private void btnDelIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        int selectedIndex = ingredientList.getSelectedIndex(); 
-        if (selectedIndex != -1) {
-            model.remove(selectedIndex); 
-        }   
-    }                                                
+    //private void btnDelIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
+        //int selectedIndex = ingredientList.getSelectedIndex(); 
+        //if (selectedIndex != -1) {
+            //model.remove(selectedIndex); 
+        //}   
+    //}                                                
 
     /**
      * @param args the command line arguments
@@ -264,13 +265,13 @@ public class AddMenuGUI extends javax.swing.JFrame {
 //        });
     }
 
-    public DefaultListModel getModel() {
-        return model;
-    }
-
-    public List<String> getLst() {
-        return lst;
-    }
+//    public DefaultListModel getModel() {
+//        return model;
+//    }
+//
+//    public List<String> getLst() {
+//        return lst;
+//    }
 
     public JTextArea getAreaMethod() {
         return areaMethod;
