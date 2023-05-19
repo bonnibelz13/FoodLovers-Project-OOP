@@ -2,7 +2,6 @@ package code.phak;
 
 import code.phak.AddMenuModel;
 import code.phak.AddMenuGUI;
-import code.phak.Food;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;

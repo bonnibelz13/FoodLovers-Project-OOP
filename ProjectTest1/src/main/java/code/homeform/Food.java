@@ -1,14 +1,11 @@
-package code.phak;
+package code.homeform;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Food implements Serializable {
     private String NameFood;
-    private List<String> FoodIng; // Food Ingredient
+    private String FoodIng; // Food Ingredient
     private String FoodType;
-    private String FoodMethod;
     //ระบุเวอร์ชันของ Class ที่ถูกserialize เพื่อให้โปรแกรมที่ deserializeเข้าใจได้ว่าClass นั้นเป็นเวอร์ชันเดียวกันหรือไม่
     private static final long serialVersionUID = 1L; 
     //การที่กระบวนการ Serialization และ Deserialization เป็นเวอร์ชันเดียวกันหมายความว่าคลาสที่ใช้ในกระบวนการ
@@ -18,24 +15,19 @@ public class Food implements Serializable {
 
     public Food() {
         this.NameFood = "";
-        this.FoodIng = new ArrayList<String>();
+        this.FoodIng = "";
         this.FoodType = "";
-        this.FoodMethod="";
+        
     }
 
-    public Food(String NameFood, List<String> FoodIngd, String FoodType,String FoodMethod) {
+    public Food(String NameFood, String FoodIngd, String FoodType) {
         this.NameFood = NameFood;
         this.FoodIng = FoodIngd;// Food Ingredient
         this.FoodType = FoodType;
-        this.FoodMethod=FoodMethod;
     }
 
-    public String getFoodMethod() {
-        return FoodMethod;
-    }
-
-    public void setFoodMethod(String FoodMethod) {
-        this.FoodMethod = FoodMethod;
+    Food(String text) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public String getNameFood() {
@@ -46,11 +38,11 @@ public class Food implements Serializable {
         this.NameFood = NameFood;
     }
 
-    public List<String> getFoodIngd() {
+    public String getFoodIngd() {
         return FoodIng;
     }
 
-    public void setFoodIngd(List<String> FoodIngd) {
+    public void setFoodIngd(String FoodIngd) {
         this.FoodIng = FoodIngd;
     }
 
