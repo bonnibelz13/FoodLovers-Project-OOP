@@ -1,36 +1,26 @@
 package code.homeform;
 
 import code.tableData.MenuTable;
-import code.tableData.TableDataImporter;
-import code.tableData.MenuTable2;
-import code.tableData.ImageRenderer;
-import code.tableData.ImageTableExporter;
-import static code.tableData.TableToFileExample.saveTableToFile;
-import com.opencsv.exceptions.CsvValidationException;
-import java.awt.Image;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-import javax.swing.DefaultListModel;
-import javax.swing.Icon;
 
-import javax.swing.ImageIcon;
+
+import java.util.List;
+
+
+import javax.swing.DefaultListModel;
+
+
+
 import javax.swing.JButton;
-import javax.swing.JCheckBox;
+
 import javax.swing.JComboBox;
-import javax.swing.JFileChooser;
+
 import javax.swing.JLabel;
 import javax.swing.JList;
-import javax.swing.JOptionPane;
-import javax.swing.JTable;
+
+import javax.swing.*;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.filechooser.FileNameExtensionFilter;
-import javax.swing.table.DefaultTableModel;
+
 
 
 
@@ -45,6 +35,9 @@ import javax.swing.table.DefaultTableModel;
  * @author User
  */
 public class AddMenuGUIForm extends javax.swing.JFrame {
+    private MenuTable menuTable;
+    private AddMenuModel addMenuModel;
+    private AddMenuController controller;
 
     /**
      * Creates new form AddMenuGUI
@@ -52,6 +45,21 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 
     public AddMenuGUIForm() {
         initComponents();
+        // Initialize addMenuModel
+        addMenuModel = new AddMenuModel();
+        
+        // Create AddMenuController and pass addMenuModel and this instance of AddMenuGUIForm
+        controller = new AddMenuController(addMenuModel, this);
+        
+        //--------------------------------------------
+        // add Table from MenuTable to AddMenuGUIForm
+        //--------------------------------------------
+        MenuTable menuTable = new MenuTable();
+        menuTable.setTable();
+        JScrollPane table = menuTable.getjScrollPane1();
+        jPanel_Table.add(table);
+        
+        
     }
 
     /**
@@ -81,6 +89,9 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jList1_Ingredients = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
         jButton1_Import = new javax.swing.JButton();
+        jPanel_Table = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1_DeleteMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -89,7 +100,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jComboBox1_Category.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jComboBox1_Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category", "Main", "Dessert", "Drink" }));
         jComboBox1_Category.setToolTipText("");
-        getContentPane().add(jComboBox1_Category, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 127, 200, -1));
+        getContentPane().add(jComboBox1_Category, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 200, -1));
 
         jTextArea1_Discription.setColumns(20);
         jTextArea1_Discription.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -97,7 +108,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jTextArea1_Discription.setText("Discription");
         jScrollPane1.setViewportView(jTextArea1_Discription);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(517, 172, -1, 371));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 190, 270, 371));
 
         jButton1_AddMenu.setBackground(new java.awt.Color(255, 49, 49));
         jButton1_AddMenu.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -108,10 +119,10 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
                 jButton1_AddMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1_AddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 590, 190, 50));
+        getContentPane().add(jButton1_AddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 190, 50));
 
         jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\src\\main\\java\\code\\im\\Logo_Food_Lover_red.png")); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 10, 200, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 200, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -142,7 +153,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jLabel2_FoodPic.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\src\\main\\java\\code\\icon\\img.png")); // NOI18N
         jPanel1.add(jLabel2_FoodPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 260, 190));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 60, 330, 310));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 330, 310));
 
         jButton_Del.setBackground(new java.awt.Color(204, 0, 0));
         jButton_Del.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
@@ -207,7 +218,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
                 .addGap(16, 16, 16))
         );
 
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 370, 290, 210));
+        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 290, 210));
 
         jButton1_Import.setText("Import");
         jButton1_Import.addActionListener(new java.awt.event.ActionListener() {
@@ -215,7 +226,36 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
                 jButton1_ImportActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1_Import, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 600, -1, -1));
+        getContentPane().add(jButton1_Import, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, -1));
+
+        jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
+        jLabel2.setText("My Recipes");
+
+        javax.swing.GroupLayout jPanel_TableLayout = new javax.swing.GroupLayout(jPanel_Table);
+        jPanel_Table.setLayout(jPanel_TableLayout);
+        jPanel_TableLayout.setHorizontalGroup(
+            jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_TableLayout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(267, Short.MAX_VALUE))
+        );
+        jPanel_TableLayout.setVerticalGroup(
+            jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel_TableLayout.createSequentialGroup()
+                .addComponent(jLabel2)
+                .addGap(0, 506, Short.MAX_VALUE))
+        );
+
+        getContentPane().add(jPanel_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 460, 530));
+
+        jButton1_DeleteMenu.setText("Delete Menu");
+        jButton1_DeleteMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_DeleteMenuActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1_DeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 100, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -237,21 +277,9 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     // Add an Ingredient.
     //------------------------
     
-    
-    DefaultListModel mod = new DefaultListModel();
-    List<String> lst = new ArrayList<String>();
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        jList1_Ingredients.setModel(mod);
-        
-        String ingredient = jTextField2_Ingredients.getText();
-        
-        if (isIngredientValid(ingredient)){
-            mod.addElement(jTextField2_Ingredients.getText().trim());
-            lst.add(jTextField2_Ingredients.getText());
-        }
-        
-        jTextField2_Ingredients.setText("");
+        controller.AddIngredient();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     //--------------------------------------------------------------------------
@@ -272,10 +300,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     
     private void jButton_DelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton_DelActionPerformed
         // TODO add your handling code here:
-        int selectedIndex = jList1_Ingredients.getSelectedIndex(); 
-        if (selectedIndex != -1) {
-            mod.remove(selectedIndex); 
-        }   
+        controller.DeleteIngredient();
     }//GEN-LAST:event_jButton_DelActionPerformed
 
     
@@ -287,73 +312,13 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     
     private void jButton3_UploadPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3_UploadPicActionPerformed
         // TODO add your handling code here:
-        JFileChooser fileChooser = new JFileChooser();
-        FileNameExtensionFilter filter = new FileNameExtensionFilter("4 supported extensions", "jpg", "jpeg", "gif", "png");
-        fileChooser.setFileFilter(filter);
-        int selected = fileChooser.showOpenDialog(null);
-        
-        if (selected == JFileChooser.APPROVE_OPTION){
-            File file = fileChooser.getSelectedFile();
-            String getSelectedImage = file.getAbsolutePath();
-            ImageIcon imIco = new ImageIcon(getSelectedImage);
-            
-            // img to fit the jlabel
-            Image imFit = imIco.getImage();
-            Image imgFit = imFit.getScaledInstance(jLabel2_FoodPic.getWidth(), jLabel2_FoodPic.getHeight(), Image.SCALE_SMOOTH);
-            jLabel2_FoodPic.setIcon(new ImageIcon(imFit));
-        }
-        
-        
+        controller.UploadPicture();
+ 
     }//GEN-LAST:event_jButton3_UploadPicActionPerformed
     
     
     
     
-    //--------------------------------------------------------------------------------------------
-    // Add new Menu to Table. And export it to File "data.csv" / export picture to folder "pics".
-    //--------------------------------------------------------------------------------------------
-    
-
-    private void jButton1_AddMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_AddMenuActionPerformed
-        // TODO add your handling code here:
-        DefaultListModel<String> listModel = (DefaultListModel<String>) jList1_Ingredients.getModel();
-        
-        
-        String dishName = jTextField1_DishName.getText();
-        String category = jComboBox1_Category.getSelectedItem().toString();
-        String description = jTextArea1_Discription.getText();
-        Icon foodPic = jLabel2_FoodPic.getIcon();
-
-        StringBuilder ingredientsBuilder = new StringBuilder();
-        for (int i = 0; i < listModel.getSize(); i++) {
-            String item = listModel.getElementAt(i);
-            ingredientsBuilder.append(item);
-            if (i < listModel.getSize() - 1) {
-                ingredientsBuilder.append(", ");
-            }
-        }
-        
-        String ingredients = ingredientsBuilder.toString();
-        MenuTable.getjTable1().getColumnModel().getColumn(4).setCellRenderer(new ImageRenderer());
-
-        DefaultTableModel model = (DefaultTableModel) MenuTable.getjTable1().getModel();
-        model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
-        
-        
-        // I tried to save pic to folder name "pics".
-        
-        JTable table = MenuTable.getjTable1(); // เปลี่ยน MenuTable.getjTable1() เป็นออบเจ็กต์ JTable ของคุณ
-        int imageColumnIndex = 4; // ดัชนีของคอลัมน์ที่บันทึกที่อยู่ของรูปภาพ
-        String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // ตำแหน่งที่ต้องการเก็บรูปภาพลงในเครื่อง
-
-        ImageTableExporter exporter = new ImageTableExporter(table, imageColumnIndex, imageFolderPath);
-        exporter.exportImages();
-        
-        saveTableToFile(MenuTable.getjTable1(), "data.csv");
-        
-        
-    }//GEN-LAST:event_jButton1_AddMenuActionPerformed
-
     
     
     
@@ -365,15 +330,34 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     private void jButton1_ImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ImportActionPerformed
         // TODO add your handling code here:
         
-        JTable table2 = MenuTable2.getjTable1();
-        TableDataImporter importer = new TableDataImporter(table2);
-        try {
-            importer.importTableDataFromCSV("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\data.csv");
-        } catch (CsvValidationException ex) {
-            Logger.getLogger(AddMenuGUIForm.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        JTable table2 = MenuTable2.getjTable1();
+//        TableDataImporter importer = new TableDataImporter(table2);
+//        try {
+//            importer.importTableDataFromCSV("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\data.csv");
+//        } catch (CsvValidationException ex) {
+//            Logger.getLogger(AddMenuGUIForm.class.getName()).log(Level.SEVERE, null, ex);
+//        }
         
     }//GEN-LAST:event_jButton1_ImportActionPerformed
+
+    //--------------------------------------------------------------------------------------------
+    // Add new Menu to Table. And export it to File "data.csv" / export picture to folder "pics".
+    //--------------------------------------------------------------------------------------------
+    
+
+    private void jButton1_AddMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_AddMenuActionPerformed
+        // TODO add your handling code here:
+        controller.AddMenu();
+
+    }//GEN-LAST:event_jButton1_AddMenuActionPerformed
+
+    //--------------------------------------------------------------------------------------------
+    // Delete Menu in Table. And del it in File "data.csv" / del the picture in folder "pics".
+    //--------------------------------------------------------------------------------------------
+    
+    private void jButton1_DeleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_DeleteMenuActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1_DeleteMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -402,6 +386,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         }
         //</editor-fold>
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -411,28 +397,31 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         });
     }
     
-    //--------------------------------------------------------
-    // This Method is Checking Text in Ingredient TextField.
-    //--------------------------------------------------------
+    //---------------------------------------------------
+    // updates the ingredient list in the GUI.
+    //---------------------------------------------------
     
-    public static boolean isIngredientValid(String ingredient) {
-        
-        // not allow the first txt to be "".
-        String ingredientRegex = "^[^\\s][A-Za-z0-9(/\\.)\\s]+$";
-        Pattern pattern = Pattern.compile(ingredientRegex);
-        Matcher matcher = pattern.matcher(ingredient);
-        return matcher.matches();
-}
-
+    public void updateIngredientList(List<String> ingredients) {
+        DefaultListModel<String> model = new DefaultListModel<>();
+        for (String ingredient : ingredients) {
+            model.addElement(ingredient);
+        }
+        jList1_Ingredients.setModel(model);
+    }
     
     //-----------------------------
     // Getter and Setter.
     //-----------------------------
     
+
     
-    public DefaultListModel getMod() {
-        return mod;
+    public JTextField getjTextField2_Ingredients() {
+        return jTextField2_Ingredients;
     }
+
+//    public DefaultListModel getMod() {
+//        return mod;
+//    }
 
     public JComboBox<String> getjComboBox1_Category() {
         return jComboBox1_Category;
@@ -457,22 +446,27 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     public JButton getjButton1_AddMenu() {
         return jButton1_AddMenu;
     }
-    
+    public MenuTable getMenuTable() {
+        return menuTable;
+    }
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_AddMenu;
+    private javax.swing.JButton jButton1_DeleteMenu;
     private javax.swing.JButton jButton1_Import;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3_UploadPic;
     private javax.swing.JButton jButton_Del;
     private javax.swing.JComboBox<String> jComboBox1_Category;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2_FoodPic;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JList<String> jList1_Ingredients;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel_Table;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextArea jTextArea1_Discription;

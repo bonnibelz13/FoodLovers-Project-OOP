@@ -10,7 +10,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import javax.swing.JOptionPane;
 
-public class AddMenuController implements ActionListener,WindowListener {
+public class AddMenuController implements ActionListener, WindowListener {
     private AddMenuGUI view;
     private AddMenuModel model;
     private boolean isOK;

@@ -1,18 +1,13 @@
 package code.homeform;
 
-import code.tableData.MenuTable;
-import code.tableData.MenuTable2;
+
 import code.loginform.LoginForm;
-import code.im.MenuDetailNewJInternalFrame;
-import code.loginform.LoginSystem;
-import code.model.DatabaseController;
+
 import code.model.User;
 import com.google.firebase.FirebaseApp;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
+
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
+
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -40,7 +35,7 @@ public class HomeMenuView extends javax.swing.JFrame {
     /**
      * Creates new form HomeMenuView2
      */
-
+    
     
 
     private LoginForm lgf;
@@ -705,21 +700,15 @@ public class HomeMenuView extends javax.swing.JFrame {
         // TODO add your handling code here:
         AddMenuGUIForm addMenu = new AddMenuGUIForm();
         addMenu.setVisible(true);
-        addMenu.setSize(850, 700);
+        addMenu.setSize(1120, 700);
         addMenu.setLocationRelativeTo(null);
         addMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
-        MenuTable menuTable = new MenuTable();
-        menuTable.setVisible(rootPaneCheckingEnabled);
-        menuTable.setSize(500, 400);
-        menuTable.setLocationRelativeTo(null);
-        menuTable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        
-        MenuTable2 menuTable2 = new MenuTable2();
-        menuTable2.setVisible(rootPaneCheckingEnabled);
-        menuTable2.setSize(500, 400);
-        menuTable2.setLocationRelativeTo(null);
-        menuTable2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+//        
+//        MenuTable menuTable = new MenuTable();
+//        menuTable.setVisible(rootPaneCheckingEnabled);
+//        menuTable.setSize(500, 400);
+//        menuTable.setLocationRelativeTo(null);
+//        menuTable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -762,28 +751,7 @@ public class HomeMenuView extends javax.swing.JFrame {
             }
         });
     }
-//    private void readData(){
-//        mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
-//        mDatabase.addValueEventListener(new ValueEventListener(){
-//            @Override
-//            public void onDataChange(DataSnapshot snapshot) {
-//                for (DataSnapshot ds : snapshot.getChildren()){
-//                    User user = ds.getValue(User.class);
-//                    if (user.getUsername().equals(
-//                    }
-//                   
-//
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onCancelled(DatabaseError error) {
-//                throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-//            }
-//            
-//        });
-//    }
+
 
     public JLabel getjLabel_User() {
         return jLabel_User;

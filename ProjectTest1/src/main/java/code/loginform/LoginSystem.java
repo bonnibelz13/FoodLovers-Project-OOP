@@ -42,7 +42,7 @@ public class LoginSystem {
 
     
     //------------------------------------
-    // Sign In User to System in Firebase.
+    // Sign In User to System - Firebase.-
     //------------------------------------
 
     
@@ -58,12 +58,16 @@ public class LoginSystem {
                         User user = userSnapshot.getValue(User.class);
                         
                         if (user.getPassword().equals(password)) {
-                            // username and password are correct, log in the user.
+                            
+                            //------------------------------------------------------------
+                            // username and password are correct, login the user.
                             // handle the success or show a success message to the user.
+                            //------------------------------------------------------------
+
                             JOptionPane.showMessageDialog(null, "Login Successful!");
 
                             
-                            // user's info.
+                            // print user's info.
                             System.out.println(user.getUsername());
                             System.out.println(user.getEmail());
                             System.out.println(user.getId_user());
@@ -84,25 +88,37 @@ public class LoginSystem {
                             homeMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                             
                             
-                            // set username.
+                            // set username on HomeMenuView.
                             homeMenu.getjLabel_User().setText(username);
                             
                             break;
 
                         } else {
+                            
+                            //--------------------------------------------------------------------------------------
                             // password is incorrect, handle the error or show an error message to the user.
+                            //--------------------------------------------------------------------------------------
+                            
                             lgf.getjLabel_Login_Message().setText("Incorrect password!");
                         }
                     }
                 } else {
+                    
+                    //-----------------------------------------------------------------------------------------------------
                     // username does not exist in the database, handle the error or show an error message to the user.
+                    //-----------------------------------------------------------------------------------------------------
+                    
                     lgf.getjLabel_Login_Message().setText("Username does not exist!");
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
+                
+                //--------------------------------------------------------------
                 // handle the error or show an error message to the user.
+                //--------------------------------------------------------------
+                
                 JOptionPane.showMessageDialog(null, "Database error occurred!");
             }
         });

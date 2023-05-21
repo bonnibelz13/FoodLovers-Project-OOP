@@ -33,6 +33,10 @@ public class RegistrationSystem {
     public void setRegisterForm(RegisterForm rgf) {
         this.rgf = rgf;
     }
+    
+    
+    
+    
     public static boolean isEmailValid(String email) {
         String emailRegex = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+\\.[A-Za-z]+$";
         Pattern pattern = Pattern.compile(emailRegex);
@@ -40,12 +44,18 @@ public class RegistrationSystem {
         return matcher.matches();
     }
 
+    
+    
     public static boolean isUsernameValid(String username) {
         String usernameRegex = "^[A-Za-z0-9_]+$";
         Pattern pattern = Pattern.compile(usernameRegex);
         Matcher matcher = pattern.matcher(username);
         return matcher.matches();
     }
+    
+    
+    
+    
     private void registerNewUser(String email, String username, String password, String conpassword){
         
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");

@@ -39,6 +39,8 @@ public class RegisterForm extends javax.swing.JFrame {
     
     public RegisterForm() {
         initComponents();
+        setLocationRelativeTo(null);
+        
         registrationSystem = new RegistrationSystem();
         registrationSystem.setRegisterForm(this);
         
@@ -357,32 +359,11 @@ public class RegisterForm extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButtonSignUpMouseClicked
 
-    }
+}
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(RegisterForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
         //</editor-fold>
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
@@ -434,6 +415,12 @@ public class RegisterForm extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
 
+    
+        //-------------------------
+        // GETTER AND SETTER.
+        //-------------------------
+    
+    
     public JButton getjButtonSignUp() {
         return jButtonSignUp;
     }
@@ -442,13 +429,6 @@ public class RegisterForm extends javax.swing.JFrame {
         this.jButtonSignUp = jButtonSignUp;
     }
 
-    public JLabel getjLabel_Email() {
-        return jLabel_Email;
-    }
-
-    public void setjLabel_Email(JLabel jLabel_Email) {
-        this.jLabel_Email = jLabel_Email;
-    }
 
     public JLabel getjLabel_Email_Message() {
         return jLabel_Email_Message;
@@ -513,10 +493,6 @@ public class RegisterForm extends javax.swing.JFrame {
     public void setjLabel_ConPassword_Message(JLabel jLabel_ConPassword_Message) {
         this.jLabel_ConPassword_Message = jLabel_ConPassword_Message;
     }
-
-
-
-
 
 }
 

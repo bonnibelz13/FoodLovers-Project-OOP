@@ -15,11 +15,15 @@ import javax.accessibility.AccessibleContext;
  * @author User
  */
 public class AddMenuGUI extends javax.swing.JFrame {
+    
+    private AddMenuModel addModel;
 
     /**
      * Creates new form AddMenuGUI
      */
     public AddMenuGUI() {
+        
+        
         frame = this;
         
         initComponents();
@@ -196,20 +200,24 @@ public class AddMenuGUI extends javax.swing.JFrame {
     
     private void tfNameActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
-    }                                      
+    }                 
     
-    DefaultListModel model = new DefaultListModel();
-    List<String> lst = new ArrayList<String>();
+    
+    //------------------------------------------------
+    // Press Add Button to add ingredient to jList.
+    //------------------------------------------------
+
+    
     private void btnAddIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
         // set model list
-        ingredientList.setModel(model);
-        // add ingredients
-        if ((tfIngredientDetail.getText().equals(""))==false){
-            model.addElement(tfIngredientDetail.getText().trim());
-            lst.add(tfIngredientDetail.getText());
-        }
+        tfIngredientDetail.setText(tfIngredientDetail.getText());
+        AddMenuModel addModel = new AddMenuModel(this);
+        addModel.AddIngredient();
     }                                                
 
+    
+    
+    
     private void categoryBoxActionPerformed(java.awt.event.ActionEvent evt) {                                            
         // TODO add your handling code here:
     }                                           
@@ -218,15 +226,24 @@ public class AddMenuGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }                                                  
     
+    //------------------------------------------------
+    // Add a new Menu.
+    //------------------------------------------------
+    
+    
     private void btnAddMenuActionPerformed(java.awt.event.ActionEvent evt) {                                           
        this.setVisible(false);//////////////
     }                                          
 
+    //------------------------------------------------
+    // Press Del Button to delete selected ingredient.
+    //------------------------------------------------
+    
+    
     private void btnDelIngredientActionPerformed(java.awt.event.ActionEvent evt) {                                                 
-        int selectedIndex = ingredientList.getSelectedIndex(); 
-        if (selectedIndex != -1) {
-            model.remove(selectedIndex); 
-        }   
+        AddMenuModel addModel = new AddMenuModel(this);
+        addModel.DelIngredient();
+
     }                                                
 
     /**
@@ -257,20 +274,13 @@ public class AddMenuGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new AddMenuGUI().setVisible(true);
-//            }
-//        });
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new AddMenuGUI().setVisible(true);
+            }
+        });
     }
 
-    public DefaultListModel getModel() {
-        return model;
-    }
-
-    public List<String> getLst() {
-        return lst;
-    }
 
     public JTextArea getAreaMethod() {
         return areaMethod;

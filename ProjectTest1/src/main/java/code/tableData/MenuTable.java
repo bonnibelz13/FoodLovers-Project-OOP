@@ -1,5 +1,6 @@
 package code.tableData;
 
+import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
@@ -24,8 +25,19 @@ public class MenuTable extends javax.swing.JFrame {
     public MenuTable() {
         initComponents();
     }
-    public void setTable(){
-        
+    public void setTable() {
+        // Create the table model
+        DefaultTableModel model = new DefaultTableModel(
+            new Object[][] {},
+            new String[] { "Name", "Type", "Ingredients", "Method", "Pic" }
+        );
+
+        // Set the table model to the jTable1
+        jTable1.setModel(model);
+
+        // Set the cell renderer for the image column
+        ImageRenderer imageRenderer = new ImageRenderer();
+        jTable1.getColumnModel().getColumn(4).setCellRenderer(imageRenderer);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -77,17 +89,17 @@ public class MenuTable extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(61, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(50, 50, 50)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(80, Short.MAX_VALUE))
         );
 
         pack();
@@ -131,14 +143,23 @@ public class MenuTable extends javax.swing.JFrame {
         });
     }
 
-    public static JTable getjTable1() {
-        return jTable1;
+    public JScrollPane getjScrollPane1() {
+        return jScrollPane1;
     }
+
+
 
     public static void setjTable1(JTable jTable1) {
         MenuTable.jTable1 = jTable1;
     }
-
+    
+    public static JTable getjTable1() {
+        return jTable1;
+    }
+    
+    public JTable getJTable() {
+        return jTable1;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;

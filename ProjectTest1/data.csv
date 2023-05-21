@@ -1,3 +1,3 @@
-"Name","Type","Ingrediets","Method","Pic"
-"Magical drink","Drink","water, pink, syrup","1. Do this
-2. Do this","javax.swing.ImageIcon@4dc1df"
+Name,Type,Ingredients,Method,Pic
+bunny burned,Main,bunny, heart,1. Cook
+2. Eat,javax.swing.ImageIcon@2ce991e6

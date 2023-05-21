@@ -293,9 +293,6 @@ public class LoginForm extends javax.swing.JFrame {
         
         RegisterForm rgf = new RegisterForm();
         rgf.setVisible(true);
-        rgf.pack();
-        rgf.setLocationRelativeTo(null);
-        rgf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
     }//GEN-LAST:event_jLabelRegisterFormMouseClicked
 

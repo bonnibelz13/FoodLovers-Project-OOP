@@ -2,117 +2,116 @@
 package code.homeform;
 
 
-import java.io.File;
-
+import code.tableData.ImageTableExporter;
+import code.tableData.MenuTable;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
 import java.util.ArrayList;
+import java.util.List;
+import javax.swing.Icon;
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
 
-import code.model.Food;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.util.ArrayList;
+public class AddMenuModel {
+    private String dishName;
+    private String category;
+    private List<String> ingredients;
+    private String description;
+    private String imagePath;
 
-
-
-
-//Model = to handle the data and logic
-
-public class AddMenuModel  {
-    
-    
-    private ArrayList<Food> foodList = new ArrayList<Food>();;
-    private Food food;
-    private File file;
-    
-    
-    
-
-    
     public AddMenuModel() {
-        File file = new File("FoodData.data"); // สร้างออบเจกต์ File เพื่อตรวจสอบไฟล์ "FoodData.data"
-        if (file.exists()) { // ตรวจสอบว่าไฟล์ "FoodData.data" มีอยู่หรือไม่
-            loadData();
-        }
+        ingredients = new ArrayList<>();
     }
-       // บันทึกข้อมูลลงในไฟล์ "FoodData.data" โดยใช้ ObjectOutputStream เพื่อเขียน object
-        // List ลงไปในไฟล์ หลังจากนั้นปิด ObjectOutputStream
 
-    private void saveData() {
-        try {
-                //สร้าง Object ชื่อ out ของคลาส ObjectOutputStream และใช้ตัวแปรชนิด FileOutputStream เพื่อสร้างไฟล์ "FoodData" ขึ้นมา
-                ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("FoodData.data")); 
-                // เขียนข้อมูลลงในไฟล์ "FoodData" ด้วยคำสั่ง writeObject(bookList) โดย FoodList เป็น ArrayList ของ FoodData
-                out.writeObject(foodList); 
-                out.close(); // ปิดไฟล์ด้วยคำสั่ง close()
-            } catch (IOException e) {
-                e.printStackTrace(); // ถ้าเกิด error ขึ้นในการเขียนข้อมูลในไฟล์ "FoodData" จะแสดง stack trace ด้วยคำสั่ง e.printStackTrace()
+    public String getDishName() {
+        return dishName;
+    }
 
+    public void setDishName(String dishName) {
+        this.dishName = dishName;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
+    }
+
+    public List<String> getIngredients() {
+        return ingredients;
+    }
+
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
+    }
+    
+    
+    public void addMenuItem(String dishName, String category, String ingredients, String description, Icon foodPic) {
+        DefaultTableModel model = (DefaultTableModel) MenuTable.getjTable1().getModel();
+        model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
+    }
+    
+    public void exportImagesInTable() {
+        JTable table = MenuTable.getjTable1();
+        int imageColumnIndex = 4; // Index of the column that contains the image
+        String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // Path to the folder where images will be saved
+
+        ImageTableExporter exporter = new ImageTableExporter(table, imageColumnIndex, imageFolderPath);
+        exporter.exportImages();
+    }
+    
+    public void saveMenuToFile(String fileName) {
+        JTable table = MenuTable.getjTable1();
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        int rowCount = model.getRowCount();
+        int columnCount = model.getColumnCount();
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName))) {
+            // บันทึกหัวตาราง
+            for (int i = 0; i < columnCount; i++) {
+                writer.write(model.getColumnName(i));
+                if (i < columnCount - 1) {
+                    writer.write(",");
+                }
+            }
+            writer.newLine();
+
+            // บันทึกข้อมูลแต่ละแถว
+            for (int i = 0; i < rowCount; i++) {
+                for (int j = 0; j < columnCount; j++) {
+                    Object value = model.getValueAt(i, j);
+                    if (value != null) {
+                        writer.write(value.toString());
+                    }
+                    if (j < columnCount - 1) {
+                        writer.write(",");
+                    }
+                }
+                writer.newLine();
             }
 
-
+            System.out.println("Menu saved to file: " + fileName);
+        } catch (IOException e) {
+            System.err.println("Error saving menu to file: " + e.getMessage());
         }
-
-
-
-        // ตรวจสอบว่าไฟล์ "FoodData.data" มีอยู่หรือไม่
-        // หากมีให้โหลดข้อมูลจากไฟล์ดังกล่าวเพื่อเตรียมใช้งาน
-    private void loadData() {
-        File file = new File("FoodData.data"); // สร้างออบเจกต์ File เพื่อตรวจสอบไฟล์ "FoodData.data"
-        if (file.exists()) { // ตรวจสอบว่าไฟล์ "FoodData.data" มีอยู่หรือไม่
-            try {
-                    FileInputStream fis = new FileInputStream(file); // เปิดไฟล์ "FoodData.data" ด้วย FileInputStream
-                    ObjectInputStream ois = new ObjectInputStream(fis); // สร้าง ObjectInputStream เพื่ออ่านข้อมูลจากไฟล์
-                    foodList = (ArrayList<Food>) ois.readObject(); // อ่านข้อมูลจากไฟล์และกำหนดค่าให้กับ foodList
-                    ois.close(); // ปิด ObjectInputStream
-                    fis.close(); // ปิด FileInputStream
-                } catch (IOException | ClassNotFoundException e) { // กรณีเกิด IOException หรือ ClassNotFoundException
-                                    e.printStackTrace(); // แสดง stack trace ของข้อผิดพลาด
-                            }
-                    }
-
     }
-
-    public ArrayList<Food> getFoodList() {
-        return foodList;
-    }
-
-    public Food getFood() {
-        return food;
-    }
-
-    public File getFile() {
-        return file;
-    }
-    
-    
-    
-            
-      
 }
-    
-        
-        
-
-    
-    
-    
-     
-    
-    
-          
-        
-         
-    
-    
-    
-
-
