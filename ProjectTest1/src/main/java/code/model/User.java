@@ -19,19 +19,15 @@ public class User {
     private String email;
     private String password;
     private String conpassword;
-    private String currentUser;
+
     
     public User() {
         // Default constructor required for calls to DataSnapshot.getValue(User.class)
     }
 
-    public String getCurrentUser() {
-        return currentUser;
-    }
 
-    public void setCurrentUser(String currentUser) {
-        this.currentUser = currentUser;
-    }
+
+
     
     public String getId_user() {
         return id_user;
@@ -39,12 +35,12 @@ public class User {
     public void setId_user(String id_user) {
         this.id_user = id_user;
     }
-    public User(String username, String email, String password, String conpassword, String currentUser) {
+    public User(String username, String email, String password, String conpassword) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.conpassword = conpassword;
-        this.currentUser = currentUser;
+
     }
     public String getUsername() {
         return username;

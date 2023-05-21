@@ -1,5 +1,5 @@
 
-package code.homeform;
+package code.tableData;
 // สร้างตัวแปร ImageIcon เพื่อเก็บรูปภาพในตาราง
 
 import java.awt.Component;

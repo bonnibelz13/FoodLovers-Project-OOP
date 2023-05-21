@@ -1,3 +1,4 @@
+
 package code.phak;
 
 
@@ -44,13 +45,10 @@ public class AddMenuModel {
         }
         catch (IOException e){
             e.printStackTrace();
+           
         } 
         
     }
-        
-
-
-
 
    
     public void loadData() {
@@ -96,8 +94,3 @@ public class AddMenuModel {
     
           
         
-         
-    
-    
-    
-

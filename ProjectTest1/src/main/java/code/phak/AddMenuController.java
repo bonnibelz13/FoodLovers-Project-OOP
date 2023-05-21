@@ -2,7 +2,6 @@ package code.phak;
 
 import code.phak.AddMenuModel;
 import code.phak.AddMenuGUI;
-import code.phak.Food;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.SwingUtilities;
@@ -45,6 +44,7 @@ public class AddMenuController implements ActionListener,WindowListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
         
        
         
@@ -54,7 +54,7 @@ public class AddMenuController implements ActionListener,WindowListener {
             Food newFood = new Food();
             newFood.setNameFood(view.getTfName().getText()); // Name
             newFood.setFoodType((String) view.getCategoryBox().getSelectedItem()); // Type
-            newFood.setFoodIngList(view.getIngredientList().getSelectedValuesList()); // Ingredients
+            newFood.setFoodIngd(view.getIngredientList().getSelectedValuesList()); // Ingredients
             newFood.setFoodMethod(view.getTfIngredientDetail().getText()); // Method
 
             model.getFoodList().add(newFood);
@@ -71,6 +71,25 @@ public class AddMenuController implements ActionListener,WindowListener {
             view.getIngredientList().setModel(ingredientListmodel);
             ingredientListmodel.addElement(view.getTfIngredientDetail().getText().trim());
         }
+
+        if(e.getSource().equals(view.getBtnAddMenu())){
+         // Create newFood object with data from text fields, including name, type, ingredients and method
+                Food newFood = new Food();
+                newFood.setNameFood(view.getTfName().getText()); // Name
+                newFood.setFoodType((String) view.getCategoryBox().getSelectedItem()); // Type
+                newFood.setFoodIngd(view.getIngredientList().getSelectedValuesList()); //Ingredients
+                newFood.setFoodMethod(view.getTfIngredientDetail().getText()); //Method
+                model.getFoodList().add(newFood);//
+                model.saveData();
+                
+                // set boolean isOK= true
+                isOK = true;
+                view.getFrame().dispose();
+                // when press Add Menu close JFrame and show JOptopnPane
+                JOptionPane.showMessageDialog(null, "Done it.", "", JOptionPane.PLAIN_MESSAGE);
+        }
+        
+
     }
     private void initializeGUI() {
         
@@ -94,29 +113,19 @@ public class AddMenuController implements ActionListener,WindowListener {
     }
 
     @Override
-    public void windowClosed(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void windowClosed(WindowEvent e) {}
 
     @Override
-    public void windowIconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void windowIconified(WindowEvent e) {}
 
     @Override
-    public void windowDeiconified(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void windowDeiconified(WindowEvent e) {}
 
     @Override
-    public void windowActivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void windowActivated(WindowEvent e) {}
 
     @Override
-    public void windowDeactivated(WindowEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
-    }
+    public void windowDeactivated(WindowEvent e) {}
 
     public boolean isOK() {
         return isOK;

@@ -6,7 +6,7 @@ import java.util.List;
 
 public class Food implements Serializable {
     private String NameFood;
-    private List<String> FoodIngList; // List to store food ingredients
+    private List<String> FoodIng; // Food Ingredient
     private String FoodType;
     private String FoodMethod;
     //ระบุเวอร์ชันของ Class ที่ถูกserialize เพื่อให้โปรแกรมที่ deserializeเข้าใจได้ว่าClass นั้นเป็นเวอร์ชันเดียวกันหรือไม่
@@ -18,14 +18,14 @@ public class Food implements Serializable {
 
     public Food() {
         this.NameFood = "";
-        this.FoodIngList = new ArrayList<>();
+        this.FoodIng = new ArrayList<String>();
         this.FoodType = "";
         this.FoodMethod="";
     }
 
-    public Food(String NameFood, List<String> FoodIngList, String FoodType,String FoodMethod) {
+    public Food(String NameFood, List<String> FoodIngd, String FoodType,String FoodMethod) {
         this.NameFood = NameFood;
-        this.FoodIngList = FoodIngList;
+        this.FoodIng = FoodIngd;// Food Ingredient
         this.FoodType = FoodType;
         this.FoodMethod=FoodMethod;
     }
@@ -46,12 +46,12 @@ public class Food implements Serializable {
         this.NameFood = NameFood;
     }
 
-    public List<String> getFoodIngList() {
-        return FoodIngList;
+    public List<String> getFoodIngd() {
+        return FoodIng;
     }
 
-    public void setFoodIngList(List<String> FoodIngList) {
-        this.FoodIngList = FoodIngList;
+    public void setFoodIngd(List<String> FoodIngd) {
+        this.FoodIng = FoodIngd;
     }
 
     public String getFoodType() {

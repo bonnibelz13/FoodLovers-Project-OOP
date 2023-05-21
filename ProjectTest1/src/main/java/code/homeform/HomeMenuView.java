@@ -1,5 +1,7 @@
 package code.homeform;
 
+import code.tableData.MenuTable;
+import code.tableData.MenuTable2;
 import code.loginform.LoginForm;
 import code.im.MenuDetailNewJInternalFrame;
 import code.loginform.LoginSystem;
@@ -14,6 +16,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.awt.Dimension;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.WindowConstants;
 
 
@@ -659,19 +662,30 @@ public class HomeMenuView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
+    
+    //---------------------------
+    // Logout.
+    //---------------------------
+    
+        
     private void jLabel11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel11MouseClicked
         // TODO add your handling code here:
         
-        this.dispose();
-        FirebaseApp.getInstance().delete();
-        
-        LoginForm lgf = new LoginForm();
-        lgf.setVisible(true);
-        lgf.pack();
-        lgf.setLocationRelativeTo(null);
-        lgf.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        int option = JOptionPane.showConfirmDialog(null, "Do you want to Logout?", "Confirm Logout", JOptionPane.YES_NO_OPTION);
+        if (option == JOptionPane.YES_OPTION) {
+            this.dispose();
+            FirebaseApp.getInstance().delete();
+
+            // Open LoginForm.
+            LoginForm lgf = new LoginForm();
+            lgf.setVisible(true);
+        }
     }//GEN-LAST:event_jLabel11MouseClicked
 
+    
+    
+    
     private void jPanel34MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jPanel34MouseClicked
         // TODO add your handling code here:
         MenuDetail menudetail = new MenuDetail();
@@ -683,6 +697,10 @@ public class HomeMenuView extends javax.swing.JFrame {
         menudetail.setVisible(true);
     }//GEN-LAST:event_jPanel34MouseClicked
 
+    
+    
+    
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
         AddMenuGUIForm addMenu = new AddMenuGUIForm();
@@ -693,9 +711,16 @@ public class HomeMenuView extends javax.swing.JFrame {
         
         MenuTable menuTable = new MenuTable();
         menuTable.setVisible(rootPaneCheckingEnabled);
-        menuTable.setSize(850, 700);
+        menuTable.setSize(500, 400);
         menuTable.setLocationRelativeTo(null);
         menuTable.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        MenuTable2 menuTable2 = new MenuTable2();
+        menuTable2.setVisible(rootPaneCheckingEnabled);
+        menuTable2.setSize(500, 400);
+        menuTable2.setLocationRelativeTo(null);
+        menuTable2.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
