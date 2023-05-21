@@ -2,7 +2,6 @@
 package code.homeform;
 
 import code.tableData.ImageRenderer;
-import code.tableData.MenuTable;
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
@@ -116,7 +115,7 @@ public class AddMenuController {
         }
 
             // Add menu item to the table in MenuTable
-            DefaultTableModel model = (DefaultTableModel) MenuTable.getjTable1().getModel();
+            DefaultTableModel model = (DefaultTableModel) MenuTableUI.getjTable1().getModel();
             model.addRow(new Object[]{dishName, category, ingredients, description, foodImageIcon});
 
             // Save the menu item to file

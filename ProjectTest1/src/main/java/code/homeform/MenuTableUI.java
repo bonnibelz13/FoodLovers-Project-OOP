@@ -1,5 +1,6 @@
-package code.tableData;
+package code.homeform;
 
+import code.tableData.ImageRenderer;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -17,12 +18,12 @@ import javax.swing.table.DefaultTableModel;
  */
 
 
-public class MenuTable extends javax.swing.JFrame {
+public class MenuTableUI extends javax.swing.JFrame {
 
     /**
      * Creates new form MenuTable
      */
-    public MenuTable() {
+    public MenuTableUI() {
         initComponents();
     }
     public void setTable() {
@@ -125,20 +126,21 @@ public class MenuTable extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MenuTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuTableUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MenuTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuTableUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MenuTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuTableUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MenuTable.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(MenuTableUI.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MenuTable().setVisible(true);
+                new MenuTableUI().setVisible(true);
             }
         });
     }
@@ -150,7 +152,7 @@ public class MenuTable extends javax.swing.JFrame {
 
 
     public static void setjTable1(JTable jTable1) {
-        MenuTable.jTable1 = jTable1;
+        MenuTableUI.jTable1 = jTable1;
     }
     
     public static JTable getjTable1() {

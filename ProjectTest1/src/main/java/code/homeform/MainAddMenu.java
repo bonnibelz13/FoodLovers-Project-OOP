@@ -1,6 +1,6 @@
 
 package code.homeform;
-public class Main {
+public class MainAddMenu {
     public static void main(String[] args) {
         // สร้างอินสแตนซ์ของ AddMenuModel2
         AddMenuModel addMenuModel = new AddMenuModel();

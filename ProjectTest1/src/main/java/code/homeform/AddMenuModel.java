@@ -3,7 +3,6 @@ package code.homeform;
 
 
 import code.tableData.ImageTableExporter;
-import code.tableData.MenuTable;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -66,12 +65,12 @@ public class AddMenuModel {
     
     
     public void addMenuItem(String dishName, String category, String ingredients, String description, Icon foodPic) {
-        DefaultTableModel model = (DefaultTableModel) MenuTable.getjTable1().getModel();
+        DefaultTableModel model = (DefaultTableModel) MenuTableUI.getjTable1().getModel();
         model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
     }
     
     public void exportImagesInTable() {
-        JTable table = MenuTable.getjTable1();
+        JTable table = MenuTableUI.getjTable1();
         int imageColumnIndex = 4; // Index of the column that contains the image
         String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // Path to the folder where images will be saved
 
@@ -80,7 +79,7 @@ public class AddMenuModel {
     }
     
     public void saveMenuToFile(String fileName) {
-        JTable table = MenuTable.getjTable1();
+        JTable table = MenuTableUI.getjTable1();
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         int rowCount = model.getRowCount();
         int columnCount = model.getColumnCount();

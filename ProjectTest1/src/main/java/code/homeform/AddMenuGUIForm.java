@@ -1,6 +1,5 @@
 package code.homeform;
 
-import code.tableData.MenuTable;
 
 
 import java.util.List;
@@ -35,7 +34,7 @@ import javax.swing.JTextField;
  * @author User
  */
 public class AddMenuGUIForm extends javax.swing.JFrame {
-    private MenuTable menuTable;
+    private MenuTableUI menuTable;
     private AddMenuModel addMenuModel;
     private AddMenuController controller;
 
@@ -54,7 +53,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         //--------------------------------------------
         // add Table from MenuTable to AddMenuGUIForm
         //--------------------------------------------
-        MenuTable menuTable = new MenuTable();
+        MenuTableUI menuTable = new MenuTableUI();
         menuTable.setTable();
         JScrollPane table = menuTable.getjScrollPane1();
         jPanel_Table.add(table);
@@ -446,7 +445,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     public JButton getjButton1_AddMenu() {
         return jButton1_AddMenu;
     }
-    public MenuTable getMenuTable() {
+    public MenuTableUI getMenuTable() {
         return menuTable;
     }
     
