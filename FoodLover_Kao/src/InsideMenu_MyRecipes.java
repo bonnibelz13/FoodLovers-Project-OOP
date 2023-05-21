@@ -1,19 +1,50 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
- */
+import DataBase.*;
+import java.awt.Color;
+import java.awt.Image;
+import java.util.*;
+import javax.swing.*;
 
-/**
- *
- * @author Noppakorn
- */
 public class InsideMenu_MyRecipes extends javax.swing.JPanel {
 
-    /**
-     * Creates new form HomeMenu2
-     */
-    public InsideMenu_MyRecipes() {
+    private ArrayList myRecipe;
+    private int page = 1;
+    
+    public InsideMenu_MyRecipes(FoodDataBase fDB, String name) {
         initComponents();
+        
+        myRecipe = fDB.getUserRecipe(name);
+        setDetail();
+        jLabelEndPage.setText("/ " + (int) ((myRecipe.size() / 8) + 1));
+        
+    }
+    
+    public void setDetail(){
+        
+        JPanel panel[] = {jPanel1, jPanel2, jPanel3, jPanel4, jPanel5, jPanel6, jPanel7, jPanel8};
+        JLabel picture[] = {pic1, pic2, pic3, pic4, pic5,  pic6, pic7, pic8};
+        JLabel menuName[] = {jLabel1A, jLabel2A, jLabel3A, jLabel4A, jLabel5A, jLabel6A, jLabel7A, jLabel8A};
+        JLabel category[] = {jLabel1B, jLabel2B, jLabel3B, jLabel4B, jLabel5B, jLabel6B, jLabel7B, jLabel8B};
+        
+        for (int i = (8 * page) - 8; i < 8 * page; i++){
+            if (i < myRecipe.size()){
+                
+                FoodRecipe food = (FoodRecipe) myRecipe.get(i);
+                
+                picture[i%8].setIcon(new ImageIcon(food.getPicture().getImage().getScaledInstance(220, 165, Image.SCALE_SMOOTH)));
+                menuName[i%8].setText(food.getName());
+                category[i%8].setText(food.getCategory());
+                
+            }
+            else {
+                panel[i%8].setBackground(Color.white);
+                picture[i%8].setIcon(null);
+                menuName[i%8].setText(" ");
+                category[i%8].setText(" ");
+            }
+        }
+        
+        this.revalidate();
+        this.repaint();
     }
 
     /**
@@ -29,33 +60,43 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jTextField1 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
-        jLabel33 = new javax.swing.JLabel();
-        latestCategory2 = new javax.swing.JLabel();
+        jLabel1A = new javax.swing.JLabel();
+        jLabel1B = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
+        pic1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel34 = new javax.swing.JLabel();
-        latestCategory3 = new javax.swing.JLabel();
-        jLabel35 = new javax.swing.JLabel();
-        latestCategory4 = new javax.swing.JLabel();
+        pic2 = new javax.swing.JLabel();
+        jLabel2A = new javax.swing.JLabel();
+        jLabel2B = new javax.swing.JLabel();
+        jLabel3A = new javax.swing.JLabel();
+        jLabel3B = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
-        latestCategory5 = new javax.swing.JLabel();
-        jLabel36 = new javax.swing.JLabel();
+        pic3 = new javax.swing.JLabel();
+        jLabel4B = new javax.swing.JLabel();
+        jLabel4A = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        pic4 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
-        jLabel37 = new javax.swing.JLabel();
-        latestCategory6 = new javax.swing.JLabel();
+        pic5 = new javax.swing.JLabel();
+        jLabel5A = new javax.swing.JLabel();
+        jLabel5B = new javax.swing.JLabel();
         jPanel6 = new javax.swing.JPanel();
-        jLabel38 = new javax.swing.JLabel();
-        latestCategory7 = new javax.swing.JLabel();
+        pic6 = new javax.swing.JLabel();
+        jLabel6A = new javax.swing.JLabel();
+        jLabel6B = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jLabel39 = new javax.swing.JLabel();
-        latestCategory8 = new javax.swing.JLabel();
+        pic7 = new javax.swing.JLabel();
+        jLabel7A = new javax.swing.JLabel();
+        jLabel7B = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jLabel40 = new javax.swing.JLabel();
-        latestCategory9 = new javax.swing.JLabel();
+        pic8 = new javax.swing.JLabel();
+        jLabel8A = new javax.swing.JLabel();
+        jLabel8B = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
-        jTextField2 = new javax.swing.JTextField();
+        jTextFieldCurrentPage = new javax.swing.JTextField();
+        jLabelEndPage = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
 
         InsideMenu_MyRecipes.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -73,90 +114,178 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel18.setForeground(new java.awt.Color(51, 51, 51));
         jLabel18.setText("My Recipes");
 
-        jLabel33.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel33.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel33.setText("Fried Rice");
-        jLabel33.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel1A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel1A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1A.setText("Fried Rice");
+        jLabel1A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        latestCategory2.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory2.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory2.setText("#MainCourse");
-        latestCategory2.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel1B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel1B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel1B.setText("#MainCourse");
+        jLabel1B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel34.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel34.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel34.setText("Fried Rice");
-        jLabel34.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic1, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
 
-        latestCategory3.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory3.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory3.setText("#MainCourse");
-        latestCategory3.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic2, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic2, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
 
-        jLabel35.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel35.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel35.setText("Fried Rice");
-        jLabel35.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel2A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel2A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2A.setText("Fried Rice");
+        jLabel2A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        latestCategory4.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory4.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory4.setText("#MainCourse");
-        latestCategory4.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel2B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel2B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel2B.setText("#MainCourse");
+        jLabel2B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        latestCategory5.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory5.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory5.setText("#MainCourse");
-        latestCategory5.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel3A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel3A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3A.setText("Fried Rice");
+        jLabel3A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel36.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel36.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel36.setText("Fried Rice");
-        jLabel36.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel3B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel3B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel3B.setText("#MainCourse");
+        jLabel3B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel37.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel37.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel37.setText("Fried Rice");
-        jLabel37.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic3, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic3, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
 
-        latestCategory6.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory6.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory6.setText("#MainCourse");
-        latestCategory6.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel4B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel4B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4B.setText("#MainCourse");
+        jLabel4B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        jLabel38.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel38.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel38.setText("Fried Rice");
-        jLabel38.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel4A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel4A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel4A.setText("Fried Rice");
+        jLabel4A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        latestCategory7.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory7.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory7.setText("#MainCourse");
-        latestCategory7.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
+        jPanel4.setLayout(jPanel4Layout);
+        jPanel4Layout.setHorizontalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic4, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel4Layout.setVerticalGroup(
+            jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic4, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
 
-        jLabel39.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel39.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel39.setText("Fried Rice");
-        jLabel39.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
+        jPanel5.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic5, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel5Layout.setVerticalGroup(
+            jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic5, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
 
-        latestCategory8.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory8.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory8.setText("#MainCourse");
-        latestCategory8.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        jLabel5A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel5A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5A.setText("Fried Rice");
+        jLabel5A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
-        jLabel40.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel40.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel40.setText("Fried Rice");
-        jLabel40.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        jLabel5B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel5B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel5B.setText("#MainCourse");
+        jLabel5B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
-        latestCategory9.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
-        latestCategory9.setForeground(new java.awt.Color(51, 51, 51));
-        latestCategory9.setText("#MainCourse");
-        latestCategory9.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic6, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic6, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
+
+        jLabel6A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel6A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6A.setText("Fried Rice");
+        jLabel6A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel6B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel6B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel6B.setText("#MainCourse");
+        jLabel6B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
+        jPanel7.setLayout(jPanel7Layout);
+        jPanel7Layout.setHorizontalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic7, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel7Layout.setVerticalGroup(
+            jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic7, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
+
+        jLabel7A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel7A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7A.setText("Fried Rice");
+        jLabel7A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel7B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel7B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel7B.setText("#MainCourse");
+        jLabel7B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
+        jPanel8.setLayout(jPanel8Layout);
+        jPanel8Layout.setHorizontalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic8, javax.swing.GroupLayout.DEFAULT_SIZE, 220, Short.MAX_VALUE)
+        );
+        jPanel8Layout.setVerticalGroup(
+            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(pic8, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
+        );
+
+        jLabel8A.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        jLabel8A.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8A.setText("Fried Rice");
+        jLabel8A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jLabel8B.setFont(new java.awt.Font("Arial", 0, 12)); // NOI18N
+        jLabel8B.setForeground(new java.awt.Color(51, 51, 51));
+        jLabel8B.setText("#MainCourse");
+        jLabel8B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jButton2.setText("<<<");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+        jButton2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton2MouseClicked(evt);
             }
         });
 
@@ -167,8 +296,27 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
             }
         });
 
-        jTextField2.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        jTextField2.setText("1");
+        jTextFieldCurrentPage.setEditable(false);
+        jTextFieldCurrentPage.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        jTextFieldCurrentPage.setText("1");
+        jTextFieldCurrentPage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldCurrentPageActionPerformed(evt);
+            }
+        });
+
+        jLabelEndPage.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        jLabelEndPage.setText("/ 999");
+        jLabelEndPage.setToolTipText("");
+        jLabelEndPage.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+
+        jButton4.setBackground(new java.awt.Color(255, 255, 255));
+        jButton4.setText("Manage MyRecipes");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout InsideMenu_MyRecipesLayout = new javax.swing.GroupLayout(InsideMenu_MyRecipes);
         InsideMenu_MyRecipes.setLayout(InsideMenu_MyRecipesLayout);
@@ -184,46 +332,50 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
                         .addGap(0, 41, Short.MAX_VALUE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
                         .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, InsideMenu_MyRecipesLayout.createSequentialGroup()
                                 .addComponent(jLabel18)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jButton3))
+                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
                                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel1A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel1B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel5B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel2B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel3A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel3B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(latestCategory5, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(latestCategory9, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(jLabel4B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8A, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8B, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
+                                        .addComponent(jButton2)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jTextFieldCurrentPage, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jLabelEndPage, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(jButton3)))))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         InsideMenu_MyRecipesLayout.setVerticalGroup(
@@ -236,62 +388,66 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
                 .addGap(51, 51, 51)
                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel18)
-                    .addComponent(jButton2)
-                    .addComponent(jButton3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButton4))
                 .addGap(37, 37, 37)
                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel33)
+                        .addComponent(jLabel1A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory2, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel1B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel34)
+                        .addComponent(jLabel2A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory3, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel2B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel35)
+                        .addComponent(jLabel3A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory4, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel3B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel36)
+                        .addComponent(jLabel4A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory5, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jLabel4B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel38)
+                        .addComponent(jLabel6A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel6B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel37)
+                        .addComponent(jLabel5A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory6, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel5B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel39)
+                        .addComponent(jLabel7A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel7B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jLabel40)
+                        .addComponent(jLabel8A)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(latestCategory9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(74, Short.MAX_VALUE))
+                        .addComponent(jLabel8B, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jLabelEndPage, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextFieldCurrentPage)
+                    .addComponent(jButton2))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -320,13 +476,29 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if (page + 1 <= (int) ((myRecipe.size() / 8) + 1)){
+            page++;
+        }
+        jTextFieldCurrentPage.setText(String.valueOf(page));
+        setDetail();
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jTextFieldCurrentPageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldCurrentPageActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldCurrentPageActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
+        if (page - 1 > 0){
+            page--;
+        }
+        jTextFieldCurrentPage.setText(String.valueOf(page));
+        setDetail();
+    }//GEN-LAST:event_jButton2MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -334,15 +506,25 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel18;
-    private javax.swing.JLabel jLabel33;
-    private javax.swing.JLabel jLabel34;
-    private javax.swing.JLabel jLabel35;
-    private javax.swing.JLabel jLabel36;
-    private javax.swing.JLabel jLabel37;
-    private javax.swing.JLabel jLabel38;
-    private javax.swing.JLabel jLabel39;
-    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel1A;
+    private javax.swing.JLabel jLabel1B;
+    private javax.swing.JLabel jLabel2A;
+    private javax.swing.JLabel jLabel2B;
+    private javax.swing.JLabel jLabel3A;
+    private javax.swing.JLabel jLabel3B;
+    private javax.swing.JLabel jLabel4A;
+    private javax.swing.JLabel jLabel4B;
+    private javax.swing.JLabel jLabel5A;
+    private javax.swing.JLabel jLabel5B;
+    private javax.swing.JLabel jLabel6A;
+    private javax.swing.JLabel jLabel6B;
+    private javax.swing.JLabel jLabel7A;
+    private javax.swing.JLabel jLabel7B;
+    private javax.swing.JLabel jLabel8A;
+    private javax.swing.JLabel jLabel8B;
+    private javax.swing.JLabel jLabelEndPage;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
@@ -352,14 +534,14 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JLabel latestCategory2;
-    private javax.swing.JLabel latestCategory3;
-    private javax.swing.JLabel latestCategory4;
-    private javax.swing.JLabel latestCategory5;
-    private javax.swing.JLabel latestCategory6;
-    private javax.swing.JLabel latestCategory7;
-    private javax.swing.JLabel latestCategory8;
-    private javax.swing.JLabel latestCategory9;
+    private javax.swing.JTextField jTextFieldCurrentPage;
+    private javax.swing.JLabel pic1;
+    private javax.swing.JLabel pic2;
+    private javax.swing.JLabel pic3;
+    private javax.swing.JLabel pic4;
+    private javax.swing.JLabel pic5;
+    private javax.swing.JLabel pic6;
+    private javax.swing.JLabel pic7;
+    private javax.swing.JLabel pic8;
     // End of variables declaration//GEN-END:variables
 }

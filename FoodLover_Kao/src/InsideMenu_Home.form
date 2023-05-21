@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <Properties>
+    <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1042, 2103]"/>
+    </Property>
+    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1042, 2103]"/>
+    </Property>
+    <Property name="name" type="java.lang.String" value="" noResource="true"/>
+  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -45,6 +54,12 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="ff" green="ff" red="ff" type="rgb"/>
         </Property>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1042, 2103]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[1042, 2103]"/>
+        </Property>
       </Properties>
 
       <Layout>
@@ -53,70 +68,70 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jLabel20" alignment="0" min="-2" max="-2" attributes="0"/>
-                      <Component id="jLabel19" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLabel_LookByCategory" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="JLabel_MostFavorite" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Component id="jLabel18" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
                           <Group type="102" alignment="1" attributes="0">
-                              <Component id="jTextField1" min="-2" pref="880" max="-2" attributes="0"/>
+                              <Component id="jTextField_Search" min="-2" pref="880" max="-2" attributes="0"/>
                               <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="jButton1" min="-2" pref="78" max="-2" attributes="0"/>
+                              <Component id="jButton_Search" min="-2" pref="78" max="-2" attributes="0"/>
                           </Group>
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jButton2" min="-2" pref="220" max="-2" attributes="0"/>
+                                      <Component id="jButton_Create" min="-2" pref="220" max="-2" attributes="0"/>
                                       <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                                          <Component id="latestPanel1" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="latestMenu1" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                          <Component id="latestCategory1" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                          <Component id="latestPanel5" alignment="0" min="-2" max="-2" attributes="0"/>
-                                          <Component id="latestMenu5" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                          <Component id="latestCategory5" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                          <Component id="jLabel11A" alignment="0" pref="220" max="32767" attributes="0"/>
+                                          <Component id="jLabel11B" alignment="0" pref="220" max="32767" attributes="0"/>
+                                          <Component id="jPanel15" alignment="0" max="32767" attributes="0"/>
+                                          <Component id="jLabel15A" alignment="0" pref="220" max="32767" attributes="0"/>
+                                          <Component id="jLabel15B" alignment="0" pref="220" max="32767" attributes="0"/>
+                                          <Component id="jPanel11" alignment="0" max="32767" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <Component id="latestPanel4" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="latestMenu4" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="latestCategory4" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jLabel47" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jLabel48" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jPanel39" alignment="0" pref="471" max="32767" attributes="0"/>
+                                  <Component id="jPanel14" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel14A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel14B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel21A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel21B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jPanel_21" alignment="0" pref="471" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="32767" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel33" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="latestCategory2" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="latestPanel2" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="latestPanel6" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="latestMenu6" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="latestCategory6" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jPanel40" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel49" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jLabel50" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel12A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel12B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jPanel12" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel16" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel16A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel16B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jPanel_22" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel22A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel22B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jPanel7" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="latestMenu7" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="latestCategory7" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jPanel17" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel17A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel17B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                                   <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
-                                      <Component id="latestMenu3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="latestCategory3" alignment="0" max="32767" attributes="0"/>
-                                      <Component id="latestPanel3" alignment="0" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel13A" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jLabel13B" alignment="0" max="32767" attributes="0"/>
+                                      <Component id="jPanel13" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <Component id="jPanel41" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel51" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
-                                  <Component id="jLabel52" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jPanel_23" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel23A" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
+                                  <Component id="jLabel23B" alignment="0" min="-2" pref="220" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jButton3" min="-2" pref="535" max="-2" attributes="0"/>
+                          <Component id="jButton_MainCourse" min="-2" pref="535" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jButton4" alignment="1" min="-2" pref="379" max="-2" attributes="0"/>
-                              <Component id="jButton5" alignment="1" min="-2" pref="377" max="-2" attributes="0"/>
+                              <Component id="jButton_Dessert" alignment="1" min="-2" pref="379" max="-2" attributes="0"/>
+                              <Component id="jButton_Drinks" alignment="1" min="-2" pref="377" max="-2" attributes="0"/>
                           </Group>
                       </Group>
                   </Group>
@@ -129,8 +144,8 @@
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
-                      <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jTextField_Search" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButton_Search" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="1" attributes="0">
@@ -141,95 +156,95 @@
                                   <EmptySpace min="-2" pref="267" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="1" attributes="0">
-                                  <Component id="latestPanel3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel13" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="latestMenu3" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel13A" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                  <Component id="latestCategory3" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="jLabel13B" min="-2" pref="25" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="12" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                           <Group type="103" groupAlignment="0" attributes="0">
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="latestPanel4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel14" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="latestMenu4" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel14A" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                  <Component id="latestCategory4" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="jLabel14B" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                               <Group type="102" alignment="0" attributes="0">
-                                  <Component id="jPanel7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jPanel17" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="latestMenu7" min="-2" max="-2" attributes="0"/>
+                                  <Component id="jLabel17A" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                                  <Component id="latestCategory7" min="-2" pref="25" max="-2" attributes="0"/>
+                                  <Component id="jLabel17B" min="-2" pref="25" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="latestPanel2" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel12" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel33" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel12A" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="latestCategory2" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel12B" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="latestPanel6" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel16" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="latestMenu6" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel16A" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="latestCategory6" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel16B" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jButton2" alignment="1" min="-2" pref="165" max="-2" attributes="0"/>
-                              <Component id="latestPanel1" alignment="1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                              <Component id="jButton_Create" pref="165" max="32767" attributes="0"/>
+                              <Component id="jPanel11" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="latestMenu1" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel11A" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="latestCategory1" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel11B" min="-2" pref="25" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="latestPanel5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel15" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="latestMenu5" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel15A" min="-2" max="-2" attributes="0"/>
                           <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                          <Component id="latestCategory5" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel15B" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
-                  <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLabel_MostFavorite" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="jPanel39" alignment="0" min="-2" max="-2" attributes="0"/>
+                      <Component id="jPanel_21" alignment="0" min="-2" max="-2" attributes="0"/>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel41" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel_23" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel51" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel23A" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel52" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel23B" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="0" attributes="0">
-                          <Component id="jPanel40" min="-2" max="-2" attributes="0"/>
+                          <Component id="jPanel_22" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                          <Component id="jLabel49" min="-2" max="-2" attributes="0"/>
+                          <Component id="jLabel22A" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jLabel50" min="-2" pref="25" max="-2" attributes="0"/>
+                          <Component id="jLabel22B" min="-2" pref="25" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
-                  <Component id="jLabel47" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel21A" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="3" max="-2" attributes="0"/>
-                  <Component id="jLabel48" min="-2" pref="25" max="-2" attributes="0"/>
+                  <Component id="jLabel21B" min="-2" pref="25" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                  <Component id="jLabel20" min="-2" max="-2" attributes="0"/>
+                  <Component id="JLabel_LookByCategory" min="-2" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" max="-2" attributes="0">
                       <Group type="102" alignment="1" attributes="0">
-                          <Component id="jButton4" max="32767" attributes="0"/>
+                          <Component id="jButton_Dessert" max="32767" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="jButton5" min="-2" pref="137" max="-2" attributes="0"/>
+                          <Component id="jButton_Drinks" min="-2" pref="137" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jButton3" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
+                      <Component id="jButton_MainCourse" alignment="0" min="-2" pref="368" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="464" max="32767" attributes="0"/>
               </Group>
@@ -237,22 +252,19 @@
         </DimensionLayout>
       </Layout>
       <SubComponents>
-        <Component class="javax.swing.JTextField" name="jTextField1">
+        <Component class="javax.swing.JTextField" name="jTextField_Search">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
             <Property name="text" type="java.lang.String" value="Search a Menu"/>
           </Properties>
           <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField1MouseClicked"/>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="jTextField_SearchMouseClicked"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton1">
+        <Component class="javax.swing.JButton" name="jButton_Search">
           <Properties>
             <Property name="text" type="java.lang.String" value="Search"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel18">
           <Properties>
@@ -265,19 +277,22 @@
             <Property name="text" type="java.lang.String" value="Latest Recipes"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton2">
+        <Component class="javax.swing.JButton" name="jButton_Create">
           <Properties>
             <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="cc" green="cc" red="cc" type="rgb"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Create"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton2ActionPerformed"/>
-          </Events>
         </Component>
-        <Container class="javax.swing.JPanel" name="latestPanel1">
+        <Container class="javax.swing.JPanel" name="jPanel11">
           <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[220, 165]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[220, 165]"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
             </Property>
@@ -286,24 +301,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture1" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic11" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture1" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic11" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture1">
-              <Events>
-                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="latestPicture1MouseClicked"/>
-              </Events>
+            <Component class="javax.swing.JLabel" name="pic11">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="latestMenu1">
+        <Component class="javax.swing.JLabel" name="jLabel11A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -315,7 +327,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory1">
+        <Component class="javax.swing.JLabel" name="jLabel11B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -327,8 +339,14 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="latestPanel2">
+        <Container class="javax.swing.JPanel" name="jPanel12">
           <Properties>
+            <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[220, 165]"/>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[220, 165]"/>
+            </Property>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
             </Property>
@@ -337,21 +355,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture2" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic12" alignment="0" pref="220" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture2" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic12" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture2">
+            <Component class="javax.swing.JLabel" name="pic12">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel33">
+        <Component class="javax.swing.JLabel" name="jLabel12A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -363,7 +381,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory2">
+        <Component class="javax.swing.JLabel" name="jLabel12B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -375,7 +393,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="latestPanel3">
+        <Container class="javax.swing.JPanel" name="jPanel13">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
@@ -385,21 +403,24 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture3" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="pic13" min="-2" pref="219" max="-2" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
+                  </Group>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture3" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic13" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture3">
+            <Component class="javax.swing.JLabel" name="pic13">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="latestMenu3">
+        <Component class="javax.swing.JLabel" name="jLabel13A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -411,7 +432,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory3">
+        <Component class="javax.swing.JLabel" name="jLabel13B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -423,7 +444,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="latestPanel4">
+        <Container class="javax.swing.JPanel" name="jPanel14">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
@@ -433,21 +454,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture4" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic14" alignment="0" pref="220" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture4" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic14" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture4">
+            <Component class="javax.swing.JLabel" name="pic14">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="latestMenu4">
+        <Component class="javax.swing.JLabel" name="jLabel14A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -459,7 +480,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory4">
+        <Component class="javax.swing.JLabel" name="jLabel14B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -471,7 +492,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="latestPanel5">
+        <Container class="javax.swing.JPanel" name="jPanel15">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
@@ -481,21 +502,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture5" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic15" alignment="0" pref="220" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture5" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic15" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture5">
+            <Component class="javax.swing.JLabel" name="pic15">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="latestMenu5">
+        <Component class="javax.swing.JLabel" name="jLabel15A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -507,7 +528,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory5">
+        <Component class="javax.swing.JLabel" name="jLabel15B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -519,7 +540,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="latestPanel6">
+        <Container class="javax.swing.JPanel" name="jPanel16">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
@@ -529,21 +550,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture6" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic16" alignment="0" pref="220" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture6" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic16" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture6">
+            <Component class="javax.swing.JLabel" name="pic16">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="latestMenu6">
+        <Component class="javax.swing.JLabel" name="jLabel16A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -555,7 +576,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory6">
+        <Component class="javax.swing.JLabel" name="jLabel16B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -567,7 +588,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel7">
+        <Container class="javax.swing.JPanel" name="jPanel17">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
@@ -577,21 +598,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture7" alignment="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic17" alignment="0" pref="220" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="latestPicture7" alignment="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic17" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JLabel" name="latestPicture7">
+            <Component class="javax.swing.JLabel" name="pic17">
             </Component>
           </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="latestMenu7">
+        <Component class="javax.swing.JLabel" name="jLabel17A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -603,7 +624,7 @@
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="latestCategory7">
+        <Component class="javax.swing.JLabel" name="jLabel17B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -615,7 +636,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel19">
+        <Component class="javax.swing.JLabel" name="JLabel_MostFavorite">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="24" style="1"/>
@@ -623,34 +644,10 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="Most Favorite"/>
+            <Property name="text" type="java.lang.String" value="My Recipes"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel48">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="12" style="0"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="#MainCourse"/>
-            <Property name="verticalAlignment" type="int" value="1"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel47">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="24" style="1"/>
-            </Property>
-            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-              <Color blue="33" green="33" red="33" type="rgb"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="#1 Fried Rice"/>
-            <Property name="verticalAlignment" type="int" value="3"/>
-          </Properties>
-        </Component>
-        <Container class="javax.swing.JPanel" name="jPanel39">
+        <Container class="javax.swing.JPanel" name="jPanel_21">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[440, 330]"/>
@@ -660,29 +657,33 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
+                  <Component id="pic21" alignment="0" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="330" max="32767" attributes="0"/>
+                  <Component id="pic21" alignment="0" pref="330" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="pic21">
+            </Component>
+          </SubComponents>
         </Container>
-        <Component class="javax.swing.JLabel" name="jLabel49">
+        <Component class="javax.swing.JLabel" name="jLabel21A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Arial" size="18" style="1"/>
+              <Font name="Arial" size="24" style="1"/>
             </Property>
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="#2 Fried Rice"/>
+            <Property name="text" type="java.lang.String" value="#1 Menu"/>
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel50">
+        <Component class="javax.swing.JLabel" name="jLabel21B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -694,7 +695,7 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Container class="javax.swing.JPanel" name="jPanel40">
+        <Container class="javax.swing.JPanel" name="jPanel_22">
           <Properties>
             <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
               <Dimension value="[220, 165]"/>
@@ -704,37 +705,21 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="220" max="32767" attributes="0"/>
+                  <Component id="pic22" alignment="0" pref="220" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="165" max="32767" attributes="0"/>
+                  <Component id="pic22" alignment="0" pref="165" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="pic22">
+            </Component>
+          </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel41">
-          <Properties>
-            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-              <Dimension value="[220, 165]"/>
-            </Property>
-          </Properties>
-
-          <Layout>
-            <DimensionLayout dim="0">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="220" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-            <DimensionLayout dim="1">
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="165" max="32767" attributes="0"/>
-              </Group>
-            </DimensionLayout>
-          </Layout>
-        </Container>
-        <Component class="javax.swing.JLabel" name="jLabel51">
+        <Component class="javax.swing.JLabel" name="jLabel22A">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="18" style="1"/>
@@ -742,11 +727,11 @@
             <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
               <Color blue="33" green="33" red="33" type="rgb"/>
             </Property>
-            <Property name="text" type="java.lang.String" value="#3 Fried Rice"/>
+            <Property name="text" type="java.lang.String" value="#2 Menu"/>
             <Property name="verticalAlignment" type="int" value="3"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel52">
+        <Component class="javax.swing.JLabel" name="jLabel22B">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="12" style="0"/>
@@ -758,7 +743,55 @@
             <Property name="verticalAlignment" type="int" value="1"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JLabel" name="jLabel20">
+        <Container class="javax.swing.JPanel" name="jPanel_23">
+          <Properties>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[220, 165]"/>
+            </Property>
+          </Properties>
+
+          <Layout>
+            <DimensionLayout dim="0">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pic23" alignment="0" pref="220" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+            <DimensionLayout dim="1">
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="pic23" alignment="0" pref="165" max="32767" attributes="0"/>
+              </Group>
+            </DimensionLayout>
+          </Layout>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="pic23">
+            </Component>
+          </SubComponents>
+        </Container>
+        <Component class="javax.swing.JLabel" name="jLabel23A">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="18" style="1"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="#3 Menu"/>
+            <Property name="verticalAlignment" type="int" value="3"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="jLabel23B">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Arial" size="12" style="0"/>
+            </Property>
+            <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="33" green="33" red="33" type="rgb"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="#MainCourse"/>
+            <Property name="verticalAlignment" type="int" value="1"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="JLabel_LookByCategory">
           <Properties>
             <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
               <Font name="Arial" size="24" style="1"/>
@@ -769,29 +802,20 @@
             <Property name="text" type="java.lang.String" value="Look by Category"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton3">
+        <Component class="javax.swing.JButton" name="jButton_MainCourse">
           <Properties>
             <Property name="text" type="java.lang.String" value="Main Course"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton3ActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton4">
+        <Component class="javax.swing.JButton" name="jButton_Dessert">
           <Properties>
             <Property name="text" type="java.lang.String" value="Dessert"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton4ActionPerformed"/>
-          </Events>
         </Component>
-        <Component class="javax.swing.JButton" name="jButton5">
+        <Component class="javax.swing.JButton" name="jButton_Drinks">
           <Properties>
             <Property name="text" type="java.lang.String" value="Drinks"/>
           </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton5ActionPerformed"/>
-          </Events>
         </Component>
       </SubComponents>
     </Container>
