@@ -30,6 +30,14 @@ public class FoodRecipe extends Food implements Recipe, Serializable {
         this.picture = picture;
         this.category = category;
     }
+    
+    public FoodRecipe(String name, JList ingredient, ImageIcon picture, String category, String description){
+        this.name = name;
+        this.ingredient = ingredient;
+        this.picture = picture;
+        this.category = category;
+        this.description = description;
+    }
 
     public void setIngredient(JList ingredient) {
         this.ingredient = ingredient;

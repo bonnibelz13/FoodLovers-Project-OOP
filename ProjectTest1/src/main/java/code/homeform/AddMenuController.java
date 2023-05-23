@@ -25,6 +25,7 @@ public class AddMenuController {
     private List<String> ingredients;
     private User user;
     private FoodDataBase fDB;
+    private DefaultTableModel tableModel;
 
     public AddMenuController(AddMenuModel addMenuModel, AddMenuGUIForm view) {
         this.addMenuModel = addMenuModel;
@@ -126,17 +127,23 @@ public class AddMenuController {
         }
 
             // Add menu item to the table in MenuTable
-            DefaultTableModel model = (DefaultTableModel) table.getModel();
-            model.addRow(new Object[]{dishName, category, ingredients, description, foodImageIcon});
-
-            // Save the menu item to file
-            addMenuModel.saveMenuToFile("data.csv");
+//            DefaultTableModel model = (DefaultTableModel) table.getModel();
+//            model.addRow(new Object[]{dishName, category, ingredients, description, foodImageIcon});
+//
+//            // Save the menu item to file
+//            addMenuModel.saveMenuToFile("data.csv");
             
             // Save to FoodDataBase        
             
+            FoodRecipe foodRecipe = new FoodRecipe(dishName, view.getjList1_Ingredients(), foodImageIcon, category, description);
+            
+            fDB.addFoodDataBase(userName, foodRecipe);
             
             
-            fDB.addFoodDataBase(userName, new FoodRecipe(dishName, view.getjList1_Ingredients(), foodImageIcon, category));
+            
+            tableModel = (DefaultTableModel) view.getjTable1().getModel();
+            tableModel.addRow(new Object[]{foodRecipe.getName(), foodRecipe.getCategory(), foodRecipe.getIngredientDetail(), foodRecipe.getDescription(), foodRecipe.getPicture()});
+
             
             try (FileOutputStream fout = new FileOutputStream("FoodDataBase.dat");
                 ObjectOutputStream oout = new ObjectOutputStream(fout)){
@@ -153,6 +160,8 @@ public class AddMenuController {
 
             // Export images in the table
             addMenuModel.exportImagesInTable();
+            view.revalidate();
+            view.repaint();
             
 
         } else {
