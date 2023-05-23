@@ -1,6 +1,9 @@
 
 package code.homeform;
 
+import code.kao.database.FoodDataBase;
+import code.kao.database.FoodRecipe;
+import code.model.User;
 import code.tableData.ImageRenderer;
 import java.awt.*;
 import java.io.*;
@@ -19,21 +22,28 @@ public class AddMenuController {
     private AddMenuModel addMenuModel;
     private AddMenuGUIForm view;
     private JTable table;
+    private List<String> ingredients;
+    private User user;
+    private FoodDataBase fDB;
 
     public AddMenuController(AddMenuModel addMenuModel, AddMenuGUIForm view) {
         this.addMenuModel = addMenuModel;
         this.view = view;
-        this.table = view.getMenuTable().getjTable1();
+        this.table = view.getjTable1();
+    }
+    
+    public void setIngredients(List<String> ingredients) {
+        this.ingredients = ingredients;
     }
     
     //------------------------
     // Add an Ingredient.
     //------------------------
     
-    public void AddIngredient(){
-        String newIngredient = view.getjTextField2_Ingredients().getText();
-        if (isValid(newIngredient)){
-            addMenuModel.getIngredients().add(newIngredient);
+    public void AddIngredient(String ingredient){
+
+        if (isValid(ingredient)){
+            addMenuModel.getIngredients().add(ingredient);
             view.updateIngredientList(addMenuModel.getIngredients());
             view.getjTextField2_Ingredients().setText("");
         }
@@ -81,13 +91,18 @@ public class AddMenuController {
     // Add new Menu to Table. And export it to File "data.csv" / export picture to folder "pics".
     //--------------------------------------------------------------------------------------------
   
-    public void AddMenu() {
+    public void AddMenu(FoodDataBase fDB, String userName) {
+        
         ListModel<String> listModel = view.getjList1_Ingredients().getModel();
 
         String dishName = view.getjTextField1_DishName().getText();
         String category = view.getjComboBox1_Category().getSelectedItem().toString();
         String description = view.getjTextArea1_Discription().getText();
         Icon foodIcon = view.getjLabel2_FoodPic().getIcon();
+        ImageIcon foodImageIcon = (ImageIcon) foodIcon;
+  
+        
+        FoodRecipe food = new FoodRecipe();
 
         StringBuilder ingredientsBuilder = new StringBuilder();
         for (int i = 0; i < listModel.getSize(); i++) {
@@ -103,10 +118,6 @@ public class AddMenuController {
         // Check dish name is exist
         if (isValid(dishName)) {
             // Convert Icon to ImageIcon
-            ImageIcon foodImageIcon = null;
-            if (foodIcon instanceof ImageIcon) {
-                foodImageIcon = (ImageIcon) foodIcon;
-            }
 
         // Check if image is uploaded
         if (foodImageIcon == null) {
@@ -115,14 +126,35 @@ public class AddMenuController {
         }
 
             // Add menu item to the table in MenuTable
-            DefaultTableModel model = (DefaultTableModel) MenuTableUI.getjTable1().getModel();
+            DefaultTableModel model = (DefaultTableModel) table.getModel();
             model.addRow(new Object[]{dishName, category, ingredients, description, foodImageIcon});
 
             // Save the menu item to file
             addMenuModel.saveMenuToFile("data.csv");
+            
+            // Save to FoodDataBase        
+            
+            
+            
+            fDB.addFoodDataBase(userName, new FoodRecipe(dishName, view.getjList1_Ingredients(), foodImageIcon, category));
+            
+            try (FileOutputStream fout = new FileOutputStream("FoodDataBase.dat");
+                ObjectOutputStream oout = new ObjectOutputStream(fout)){
+                    oout.writeObject(fDB);
+                    System.out.println("Save Data Successfully");
+            }
+            catch (IOException ex){
+                ex.printStackTrace();
+                System.out.println("cannot save.");
+            }
+            finally {
+                System.out.println("Done.");
+            }
 
             // Export images in the table
             addMenuModel.exportImagesInTable();
+            
+
         } else {
             JOptionPane.showMessageDialog(null, "Please enter your dish name.");
         }
@@ -131,11 +163,49 @@ public class AddMenuController {
     //--------------------------------------------------------------------------------------------
     // Delete Menu in Table. And del it in File "data.csv" / del the picture in folder "pics".
     //--------------------------------------------------------------------------------------------
+    
+    public void DeleteMenu(int selectedRow, FoodDataBase fDB, String userName) {
+        DefaultTableModel model = view.getTableModel();
+        FoodRecipe food = (FoodRecipe) fDB.getUserRecipe(userName).get(selectedRow);
+        
+        fDB.removeFoodDataBase(userName, food);
 
-    public void DeleteMenu(){
+        if (selectedRow != -1) { // ตรวจสอบว่ามีแถวที่เลือกหรือไม่
+            model.removeRow(selectedRow); // ลบแถวที่เลือกจากตาราง
+            
+            // อัปเดตไฟล์ CSV
+//            String fileName = "data.csv";
+//            addMenuModel.saveMenuToFile(fileName);
+
+            System.out.println("Deleted the menu.");
+        } else {
+            // แสดงข้อความหรือทำอย่างไรก็ได้เมื่อไม่มีแถวที่เลือก
+            JOptionPane.showMessageDialog(null, "Please select the menu.");
+        }
+        
+        try (FileOutputStream fout = new FileOutputStream("FoodDataBase.dat");
+            ObjectOutputStream oout = new ObjectOutputStream(fout)){
+                oout.writeObject(fDB);
+                System.out.println("Import Data Successfully");
+        }
+        catch (IOException ex){
+            System.out.println("cannot save.");
+        }
+        finally {
+            System.out.println("Done.");
+        }
         
     }
-
+    
+    public void loadMenuFromFile() {
+        // Load menu data from file
+        List<String[]> menuData = addMenuModel.loadMenuFromFile("data.csv");
+        
+        // Update the table with the loaded menu data
+        for (String[] rowData : menuData) {
+            view.updateTable(rowData);
+        }
+    }
 
     //--------------------------------------------------------
     // This Method is Checking Text in Ingredient TextField.

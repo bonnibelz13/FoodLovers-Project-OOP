@@ -2,6 +2,8 @@
 package code.homeform;
 
 
+import code.kao.database.FoodDataBase;
+import code.model.User;
 import code.tableData.ImageTableExporter;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -12,15 +14,31 @@ import javax.swing.Icon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
 public class AddMenuModel {
     private String dishName;
     private String category;
     private List<String> ingredients;
     private String description;
     private String imagePath;
+    private AddMenuGUIForm view;
+    
+    
 
     public AddMenuModel() {
         ingredients = new ArrayList<>();
+    }
+    
+    public AddMenuModel(AddMenuGUIForm view) {
+        this.view = view;
+        ingredients = new ArrayList<>();
+    }
+    public AddMenuModel(String userName, FoodDataBase fDB, AddMenuGUIForm view){
+        
+        
     }
 
     public String getDishName() {
@@ -65,12 +83,12 @@ public class AddMenuModel {
     
     
     public void addMenuItem(String dishName, String category, String ingredients, String description, Icon foodPic) {
-        DefaultTableModel model = (DefaultTableModel) MenuTableUI.getjTable1().getModel();
+        DefaultTableModel model = (DefaultTableModel) view.getjTable1().getModel();
         model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
     }
     
     public void exportImagesInTable() {
-        JTable table = MenuTableUI.getjTable1();
+        JTable table = view.getjTable1();
         int imageColumnIndex = 4; // Index of the column that contains the image
         String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // Path to the folder where images will be saved
 
@@ -79,7 +97,8 @@ public class AddMenuModel {
     }
     
     public void saveMenuToFile(String fileName) {
-        JTable table = MenuTableUI.getjTable1();
+        JTable table = view.getjTable1();
+        
         DefaultTableModel model = (DefaultTableModel) table.getModel();
         int rowCount = model.getRowCount();
         int columnCount = model.getColumnCount();
@@ -113,4 +132,25 @@ public class AddMenuModel {
             System.err.println("Error saving menu to file: " + e.getMessage());
         }
     }
+    
+    
+    public List<String[]> loadMenuFromFile(String fileName) {
+        List<String[]> menuData = new ArrayList<>();
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] rowData = line.split(",");
+                menuData.add(rowData);
+            }
+            
+
+            System.out.println("Menu loaded from file: " + fileName);
+        } catch (IOException e) {
+            System.err.println("Error loading menu from file: " + e.getMessage());
+        }
+
+        return menuData;
+    }
+    
 }

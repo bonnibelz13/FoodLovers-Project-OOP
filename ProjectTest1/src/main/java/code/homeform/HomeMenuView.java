@@ -1,6 +1,7 @@
 package code.homeform;
 
 
+import code.kao.database.FoodDataBase;
 import code.loginform.LoginForm;
 
 import code.model.User;
@@ -41,12 +42,21 @@ public class HomeMenuView extends javax.swing.JFrame {
     private LoginForm lgf;
     private DatabaseReference mDatabase;
     private User user;
+    private FoodDataBase foodDataBase;
+    String userName;
 
     
     public HomeMenuView() {
         initComponents();
 
 
+    }
+
+    public HomeMenuView(FoodDataBase fDB, String username) {
+        
+        foodDataBase = fDB;
+        userName = username;
+        initComponents();
     }
 
     /**
@@ -698,11 +708,26 @@ public class HomeMenuView extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        AddMenuGUIForm addMenu = new AddMenuGUIForm();
-        addMenu.setVisible(true);
-        addMenu.setSize(1120, 700);
-        addMenu.setLocationRelativeTo(null);
-        addMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        
+
+
+        // สร้างอินสแตนซ์ของ AddMenuGUIForm2
+        AddMenuGUIForm view = new AddMenuGUIForm(foodDataBase, userName);
+        
+        AddMenuModel addMenuModel = new AddMenuModel(userName, foodDataBase, view);
+
+        // สร้างอินสแตนซ์ของ AddMenuController2 และส่ง AddMenuModel2 และ AddMenuGUIForm2 เป็นพารามิเตอร์
+        AddMenuController controller = new AddMenuController(addMenuModel, view);
+
+        // กำหนดให้ AddMenuGUIForm2 เป็นหน้าต่างที่แสดงผล
+        view.setVisible(true);
+        view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+//        AddMenuGUIForm addMenu = new AddMenuGUIForm();
+//        addMenu.setVisible(true);
+//        addMenu.setSize(1120, 700);
+//        addMenu.setLocationRelativeTo(null);
+//        addMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 //        
 //        MenuTable menuTable = new MenuTable();
 //        menuTable.setVisible(rootPaneCheckingEnabled);
@@ -719,38 +744,38 @@ public class HomeMenuView extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new HomeMenuView().setVisible(true);
-            }
-        });
-    }
+//    public static void main(String args[]) {
+//        /* Set the Nimbus look and feel */
+//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+//         */
+//        try {
+//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+//                if ("Nimbus".equals(info.getName())) {
+//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+//                    break;
+//                }
+//            }
+//        } catch (ClassNotFoundException ex) {
+//            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (InstantiationException ex) {
+//            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (IllegalAccessException ex) {
+//            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+//            java.util.logging.Logger.getLogger(HomeMenuView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+//        }
+//        //</editor-fold>
+//        //</editor-fold>
+//
+//        /* Create and display the form */
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new HomeMenuView().setVisible(true);
+//            }
+//        });
+//    }
 
 
     public JLabel getjLabel_User() {

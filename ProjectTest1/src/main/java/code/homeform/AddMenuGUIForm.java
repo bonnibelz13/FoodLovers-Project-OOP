@@ -2,6 +2,7 @@ package code.homeform;
 
 
 
+import code.model.User;
 import java.util.List;
 
 
@@ -19,6 +20,15 @@ import javax.swing.JList;
 import javax.swing.*;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.table.DefaultTableModel;
+
+import code.kao.database.*;
+import code.tableData.ImageRenderer;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.util.ArrayList;
+
 
 
 
@@ -34,32 +44,65 @@ import javax.swing.JTextField;
  * @author User
  */
 public class AddMenuGUIForm extends javax.swing.JFrame {
-    private MenuTableUI menuTable;
+
     private AddMenuModel addMenuModel;
     private AddMenuController controller;
+    private FoodDataBase foodDataBase;
+    private User user;
+    private DefaultTableModel tableModel;
 
     /**
      * Creates new form AddMenuGUI
      */
 
-    public AddMenuGUIForm() {
+    public AddMenuGUIForm(FoodDataBase foodDataBase, String userName) {
+        
+        this.foodDataBase = foodDataBase;
         initComponents();
-        // Initialize addMenuModel
-        addMenuModel = new AddMenuModel();
         
-        // Create AddMenuController and pass addMenuModel and this instance of AddMenuGUIForm
-        controller = new AddMenuController(addMenuModel, this);
+        try (FileInputStream fin = new FileInputStream("FoodDataBase.dat");
+             ObjectInputStream oin = new ObjectInputStream(fin)){
+            foodDataBase = (FoodDataBase) oin.readObject();
+            
+            System.out.println("Import Data Successfully");
+        }
+        catch (IOException | ClassNotFoundException ex){
+            foodDataBase = new FoodDataBase();
+            System.out.println("Data not found. Create New DataBase Successfully.");
+        }
+        finally {
+            System.out.println("Done.");
+        }
         
-        //--------------------------------------------
-        // add Table from MenuTable to AddMenuGUIForm
-        //--------------------------------------------
-        MenuTableUI menuTable = new MenuTableUI();
-        menuTable.setTable();
-        JScrollPane table = menuTable.getjScrollPane1();
-        jPanel_Table.add(table);
+        ArrayList myRecipe = (ArrayList) foodDataBase.getUserRecipe("admin");
+        
+        if (myRecipe != null){
+            for (int i = 0; i < myRecipe.size(); i++){
+            FoodRecipe food = (FoodRecipe) myRecipe.get(i);
+            tableModel = (DefaultTableModel) jTable1.getModel();
+            tableModel.addRow(new Object[]{food.getName(), food.getCategory(), food.getIngredientDetail(), food.getDescription(), food.getPicture()});
+            
+            }
+        }
         
         
+        
+//        // Initialize the table model
+//        tableModel = (DefaultTableModel) jTable1.getModel();
+        
+        // Create an instance of AddMenuModel and AddMenuController
+        AddMenuModel model = new AddMenuModel(this);
+        controller = new AddMenuController(model, this);
+        
+        // Load menu data from file and populate the table
+//        controller.loadMenuFromFile();
+//        tableModel.removeRow(0);
     }
+
+        
+        
+    
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -90,6 +133,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jButton1_Import = new javax.swing.JButton();
         jPanel_Table = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jButton1_DeleteMenu = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -104,7 +149,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jTextArea1_Discription.setColumns(20);
         jTextArea1_Discription.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
         jTextArea1_Discription.setRows(5);
-        jTextArea1_Discription.setText("Discription");
+        jTextArea1_Discription.setText("Description");
         jScrollPane1.setViewportView(jTextArea1_Discription);
 
         getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 190, 270, 371));
@@ -119,8 +164,6 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton1_AddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 190, 50));
-
-        jLabel3.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\src\\main\\java\\code\\im\\Logo_Food_Lover_red.png")); // NOI18N
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 200, -1));
 
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -230,20 +273,49 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setText("My Recipes");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Category", "Ingredients", "Description", "Pic"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable1);
+        if (jTable1.getColumnModel().getColumnCount() > 0) {
+            jTable1.getColumnModel().getColumn(0).setResizable(false);
+            jTable1.getColumnModel().getColumn(1).setResizable(false);
+            jTable1.getColumnModel().getColumn(2).setResizable(false);
+            jTable1.getColumnModel().getColumn(3).setResizable(false);
+            jTable1.getColumnModel().getColumn(4).setResizable(false);
+        }
+
         javax.swing.GroupLayout jPanel_TableLayout = new javax.swing.GroupLayout(jPanel_Table);
         jPanel_Table.setLayout(jPanel_TableLayout);
         jPanel_TableLayout.setHorizontalGroup(
             jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TableLayout.createSequentialGroup()
                 .addGap(55, 55, 55)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(267, Short.MAX_VALUE))
+                .addGroup(jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(40, Short.MAX_VALUE))
         );
         jPanel_TableLayout.setVerticalGroup(
             jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel_TableLayout.createSequentialGroup()
                 .addComponent(jLabel2)
-                .addGap(0, 506, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         getContentPane().add(jPanel_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 460, 530));
@@ -254,7 +326,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
                 jButton1_DeleteMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1_DeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 570, 100, 50));
+        getContentPane().add(jButton1_DeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, 100, 50));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -278,7 +350,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        controller.AddIngredient();
+        controller.AddIngredient(jTextField2_Ingredients.getText());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     //--------------------------------------------------------------------------
@@ -346,7 +418,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 
     private void jButton1_AddMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_AddMenuActionPerformed
         // TODO add your handling code here:
-        controller.AddMenu();
+        controller.AddMenu(foodDataBase, "admin");
 
     }//GEN-LAST:event_jButton1_AddMenuActionPerformed
 
@@ -356,6 +428,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     
     private void jButton1_DeleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_DeleteMenuActionPerformed
         // TODO add your handling code here:
+        int selectedRow = jTable1.getSelectedRow();
+        controller.DeleteMenu(selectedRow, foodDataBase, "admin");
     }//GEN-LAST:event_jButton1_DeleteMenuActionPerformed
 
     /**
@@ -389,16 +463,20 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new AddMenuGUIForm().setVisible(true);
-            }
-        });
+//        java.awt.EventQueue.invokeLater(new Runnable() {
+//            public void run() {
+//                new AddMenuGUIForm().setVisible(true);
+//            }
+//        });
     }
     
     //---------------------------------------------------
     // updates the ingredient list in the GUI.
     //---------------------------------------------------
+    
+    public void updateTable(Object[] rowData) {
+        tableModel.addRow(rowData);
+    }
     
     public void updateIngredientList(List<String> ingredients) {
         DefaultListModel<String> model = new DefaultListModel<>();
@@ -407,6 +485,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         }
         jList1_Ingredients.setModel(model);
     }
+    
+
     
     //-----------------------------
     // Getter and Setter.
@@ -445,9 +525,17 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     public JButton getjButton1_AddMenu() {
         return jButton1_AddMenu;
     }
-    public MenuTableUI getMenuTable() {
-        return menuTable;
+
+    
+    public DefaultTableModel getTableModel() {
+        return (DefaultTableModel) jTable1.getModel();
     }
+
+    public JTable getjTable1() {
+        return jTable1;
+    }
+
+
     
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_AddMenu;
@@ -468,6 +556,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel_Table;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JTable jTable1;
     private javax.swing.JTextArea jTextArea1_Discription;
     private javax.swing.JTextField jTextField1_DishName;
     private javax.swing.JTextField jTextField2_Ingredients;

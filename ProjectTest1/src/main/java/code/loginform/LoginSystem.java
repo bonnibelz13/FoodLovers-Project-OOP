@@ -4,7 +4,10 @@ package code.loginform;
 
 
 
+//import code.kao.*;
+
 import code.homeform.HomeMenuView;
+import code.kao.database.FoodDataBase;
 import code.model.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -12,6 +15,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -33,6 +39,7 @@ import javax.swing.JOptionPane;
 public class LoginSystem {
     private DatabaseReference mDatabase;
     private LoginForm lgf;
+    private FoodDataBase foodDataBase;
 
 
     
@@ -80,16 +87,45 @@ public class LoginSystem {
                             lgf.dispose();
                             
                             // open HomeMenuView.
+
+
+                            try (FileInputStream fin = new FileInputStream("FoodDataBase.dat");
+                                 ObjectInputStream oin = new ObjectInputStream(fin)){
+                                foodDataBase = (FoodDataBase) oin.readObject();
+
+                                System.out.println("Import Data Successfully");
+                            }
+                            catch (IOException | ClassNotFoundException ex){
+                                foodDataBase = new FoodDataBase();
+                                System.out.println("Data not found. Create New DataBase Successfully.");
+                            }
+                            finally {
+                                System.out.println("Done.");
+                            }
                             
-                            HomeMenuView homeMenu = new HomeMenuView();
-                            homeMenu.setVisible(true);
-                            homeMenu.pack();
-                            homeMenu.setLocationRelativeTo(null);
-                            homeMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+                            new HomeMenuView(foodDataBase, "Kao Noppakorn").setVisible(true);
+                            
+                            System.out.println("hi");
+                            
+//                            HomeMenuView homeMenu = new HomeMenuView();
+//                            homeMenu.setVisible(true);
+//                            homeMenu.pack();
+//                            homeMenu.setLocationRelativeTo(null);
+//                            homeMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                             
                             
                             // set username on HomeMenuView.
-                            homeMenu.getjLabel_User().setText(username);
+//                            homeMenu.getjLabel_User().setText(username);
+                            
+                            
+                            // set user info.
+                            user.setUsername(username);
+                            user.setPassword(password);
+                            user.setEmail(user.getEmail());
+                            user.setId_user(user.getId_user());
+                            
+                          
+                            
                             
                             break;
 

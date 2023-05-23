@@ -1,6 +1,7 @@
 package code.homeform;
 
 import code.tableData.ImageRenderer;
+import java.util.List;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -144,12 +145,13 @@ public class MenuTableUI extends javax.swing.JFrame {
             }
         });
     }
+    
+    
+
 
     public JScrollPane getjScrollPane1() {
         return jScrollPane1;
     }
-
-
 
     public static void setjTable1(JTable jTable1) {
         MenuTableUI.jTable1 = jTable1;
@@ -159,9 +161,7 @@ public class MenuTableUI extends javax.swing.JFrame {
         return jTable1;
     }
     
-    public JTable getJTable() {
-        return jTable1;
-    }
+ 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JScrollPane jScrollPane1;
     private static javax.swing.JTable jTable1;
