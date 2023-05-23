@@ -24,10 +24,13 @@ import javax.swing.table.DefaultTableModel;
 
 import code.kao.database.*;
 import code.tableData.ImageRenderer;
+import java.awt.Component;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.util.ArrayList;
+import javax.swing.table.TableCellRenderer;
+import javax.swing.table.TableColumnModel;
 
 
 
@@ -79,12 +82,18 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         if (myRecipe != null){
             for (int i = 0; i < myRecipe.size(); i++){
             FoodRecipe food = (FoodRecipe) myRecipe.get(i);
+
             tableModel = (DefaultTableModel) jTable1.getModel();
             tableModel.addRow(new Object[]{food.getName(), food.getCategory(), food.getIngredientDetail(), food.getDescription(), food.getPicture()});
             
+            ImageRenderer imageRenderer = new ImageRenderer();
+            jTable1.getColumnModel().getColumn(4).setCellRenderer(imageRenderer);
+            jTable1.getColumnModel().getColumn(4).setPreferredWidth(60);
+            jTable1.setRowHeight(60);
+            
             }
         }
-        
+
         
         
 //        // Initialize the table model
@@ -98,8 +107,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 //        controller.loadMenuFromFile();
 //        tableModel.removeRow(0);
     }
-
-        
+    
         
     
 

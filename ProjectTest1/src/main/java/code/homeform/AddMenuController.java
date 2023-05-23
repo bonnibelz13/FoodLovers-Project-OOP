@@ -16,6 +16,7 @@ import javax.swing.*;
 import javax.swing.filechooser.*;
 import javax.swing.table.TableColumn;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableCellRenderer;
 
 
 public class AddMenuController {
@@ -143,7 +144,10 @@ public class AddMenuController {
             
             tableModel = (DefaultTableModel) view.getjTable1().getModel();
             tableModel.addRow(new Object[]{foodRecipe.getName(), foodRecipe.getCategory(), foodRecipe.getIngredientDetail(), foodRecipe.getDescription(), foodRecipe.getPicture()});
-
+            ImageRenderer imageRenderer = new ImageRenderer();
+            view.getjTable1().getColumnModel().getColumn(4).setCellRenderer(imageRenderer);
+            view.getjTable1().getColumnModel().getColumn(4).setPreferredWidth(60);
+            view.getjTable1().setRowHeight(60);
             
             try (FileOutputStream fout = new FileOutputStream("FoodDataBase.dat");
                 ObjectOutputStream oout = new ObjectOutputStream(fout)){
@@ -159,7 +163,6 @@ public class AddMenuController {
             }
 
             // Export images in the table
-            addMenuModel.exportImagesInTable();
             view.revalidate();
             view.repaint();
             
@@ -168,7 +171,8 @@ public class AddMenuController {
             JOptionPane.showMessageDialog(null, "Please enter your dish name.");
         }
     }
-
+    
+      
     //--------------------------------------------------------------------------------------------
     // Delete Menu in Table. And del it in File "data.csv" / del the picture in folder "pics".
     //--------------------------------------------------------------------------------------------
