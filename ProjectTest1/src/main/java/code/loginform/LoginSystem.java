@@ -103,7 +103,8 @@ public class LoginSystem {
                                 System.out.println("Done.");
                             }
                             
-                            new HomeMenuView(foodDataBase, "Kao Noppakorn").setVisible(true);
+                            new HomeMenuView(foodDataBase, username).setVisible(true);
+                            
                             
                             System.out.println("hi");
                             

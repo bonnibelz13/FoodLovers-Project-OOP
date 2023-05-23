@@ -57,6 +57,7 @@ public class HomeMenuView extends javax.swing.JFrame {
         foodDataBase = fDB;
         userName = username;
         initComponents();
+        jLabel_User.setText(username);
     }
 
     /**

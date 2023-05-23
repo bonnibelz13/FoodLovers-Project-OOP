@@ -53,6 +53,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     private FoodDataBase foodDataBase;
     private User user;
     private DefaultTableModel tableModel;
+     String username;
 
     /**
      * Creates new form AddMenuGUI
@@ -61,6 +62,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     public AddMenuGUIForm(FoodDataBase foodDataBase, String userName) {
         
         this.foodDataBase = foodDataBase;
+        this.username = userName;
         initComponents();
         
         try (FileInputStream fin = new FileInputStream("FoodDataBase.dat");
@@ -77,7 +79,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
             System.out.println("Done.");
         }
         
-        ArrayList myRecipe = (ArrayList) foodDataBase.getUserRecipe("admin");
+        ArrayList myRecipe = (ArrayList) foodDataBase.getUserRecipe(userName);
         
         if (myRecipe != null){
             for (int i = 0; i < myRecipe.size(); i++){
@@ -86,6 +88,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
             tableModel = (DefaultTableModel) jTable1.getModel();
             tableModel.addRow(new Object[]{food.getName(), food.getCategory(), food.getIngredientDetail(), food.getDescription(), food.getPicture()});
             
+            // Render pic to table.
             ImageRenderer imageRenderer = new ImageRenderer();
             jTable1.getColumnModel().getColumn(4).setCellRenderer(imageRenderer);
             jTable1.getColumnModel().getColumn(4).setPreferredWidth(60);
@@ -426,7 +429,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 
     private void jButton1_AddMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_AddMenuActionPerformed
         // TODO add your handling code here:
-        controller.AddMenu(foodDataBase, "admin");
+        controller.AddMenu(foodDataBase, username);
 
     }//GEN-LAST:event_jButton1_AddMenuActionPerformed
 
@@ -437,7 +440,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     private void jButton1_DeleteMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_DeleteMenuActionPerformed
         // TODO add your handling code here:
         int selectedRow = jTable1.getSelectedRow();
-        controller.DeleteMenu(selectedRow, foodDataBase, "admin");
+        controller.DeleteMenu(selectedRow, foodDataBase, username);
     }//GEN-LAST:event_jButton1_DeleteMenuActionPerformed
 
     /**

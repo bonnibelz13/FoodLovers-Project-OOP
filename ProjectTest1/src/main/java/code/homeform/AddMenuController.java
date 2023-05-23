@@ -119,7 +119,7 @@ public class AddMenuController {
 
         // Check dish name is exist
         if (isValid(dishName)) {
-            // Convert Icon to ImageIcon
+            
 
         // Check if image is uploaded
         if (foodImageIcon == null) {
@@ -134,16 +134,21 @@ public class AddMenuController {
 //            // Save the menu item to file
 //            addMenuModel.saveMenuToFile("data.csv");
             
-            // Save to FoodDataBase        
+            // Save to FoodDataBase.
             
             FoodRecipe foodRecipe = new FoodRecipe(dishName, view.getjList1_Ingredients(), foodImageIcon, category, description);
             
             fDB.addFoodDataBase(userName, foodRecipe);
-            
-            
+
             
             tableModel = (DefaultTableModel) view.getjTable1().getModel();
             tableModel.addRow(new Object[]{foodRecipe.getName(), foodRecipe.getCategory(), foodRecipe.getIngredientDetail(), foodRecipe.getDescription(), foodRecipe.getPicture()});
+            
+            
+            // show JOptionPane added menu.
+            JOptionPane.showMessageDialog(null, "New menu added.");
+            
+            // Render pic to table.
             ImageRenderer imageRenderer = new ImageRenderer();
             view.getjTable1().getColumnModel().getColumn(4).setCellRenderer(imageRenderer);
             view.getjTable1().getColumnModel().getColumn(4).setPreferredWidth(60);
