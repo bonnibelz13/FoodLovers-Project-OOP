@@ -31,6 +31,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
     
     public HomeMenuView(FoodDataBase fDB, String name) {
         initComponents();
+        this.setLocationRelativeTo(null);
         
         foodDataBase = fDB;
         userName = name;
@@ -173,6 +174,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel11.setText("Log out");
+        jLabel11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jLabel11.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jLabel11MouseClicked(evt);
@@ -255,7 +257,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabel_Measuring)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 248, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(14, 14, 14))
         );
@@ -279,7 +281,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JLabel_MyRecipesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JLabel_MyRecipesMouseClicked
-        jScrollPane1.setViewportView(new InsideMenu_MyRecipes(foodDataBase, userName));
+        jScrollPane1.setViewportView(new InsideMenu_MyRecipes(foodDataBase, userName, this));
         this.revalidate();
         this.repaint();
     }//GEN-LAST:event_JLabel_MyRecipesMouseClicked

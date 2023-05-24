@@ -21,8 +21,9 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
     private HomeMenuView home;
     private String userName;
     
-    public InsideMenu_MyRecipes(FoodDataBase fDB, String name) {
+    public InsideMenu_MyRecipes(FoodDataBase fDB, String name, HomeMenuView home) {
         initComponents();
+        this.home = home;
         foodDataBase = fDB;
         myRecipe = fDB.getUserRecipe(name);
         setDetail();
@@ -78,7 +79,7 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
     private void initComponents() {
 
         InsideMenu_MyRecipes = new javax.swing.JPanel();
-        jTextField1 = new javax.swing.JTextField();
+        jTextField_Search = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jLabel1A = new javax.swing.JLabel();
@@ -121,8 +122,13 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
 
         InsideMenu_MyRecipes.setBackground(new java.awt.Color(255, 255, 255));
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("Search a Menu");
+        jTextField_Search.setEditable(false);
+        jTextField_Search.setText("Search a Menu");
+        jTextField_Search.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField_SearchMouseClicked(evt);
+            }
+        });
 
         jButton1.setText("Search");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -347,7 +353,7 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
                 .addGap(32, 32, 32)
                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, 880, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 41, Short.MAX_VALUE))
@@ -404,7 +410,7 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
             .addGroup(InsideMenu_MyRecipesLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField_Search, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
                 .addGap(51, 51, 51)
                 .addGroup(InsideMenu_MyRecipesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -494,7 +500,16 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        String search_item = jTextField_Search.getText();
+        ArrayList result = new Search().SearchMenuCategory(search_item, myRecipe);
+        
+        if (result.size() > 0){
+            home.jScrollPane1.setViewportView(new InsideMenu_Category(result, search_item, foodDataBase, home));
+        }else{
+            JOptionPane.showMessageDialog(null, "Not found this Menu.");
+            jTextField_Search.setText("");
+        }
+        
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
@@ -522,6 +537,7 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         // กำหนดให้ AddMenuGUIForm2 เป็นหน้าต่างที่แสดงผล
         view.setVisible(true);
         view.setSize(1135, 710);
+        view.setLocationRelativeTo(null);
         view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         view.addWindowListener(new WindowAdapter() {
@@ -541,6 +557,11 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jTextFieldCurrentPage.setText(String.valueOf(page));
         setDetail();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void jTextField_SearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField_SearchMouseClicked
+        jTextField_Search.setText("");
+        jTextField_Search.setEditable(true);
+    }//GEN-LAST:event_jTextField_SearchMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -575,8 +596,8 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
     private javax.swing.JPanel jPanel8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextFieldCurrentPage;
+    private javax.swing.JTextField jTextField_Search;
     private javax.swing.JLabel pic1;
     private javax.swing.JLabel pic2;
     private javax.swing.JLabel pic3;

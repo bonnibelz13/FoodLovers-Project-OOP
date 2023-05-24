@@ -509,7 +509,7 @@ public class InsideMenu_Category extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String search_item = jTextField_Search.getText();
-        ArrayList result = new Search().SearchMenu(search_item, foodDataBase);
+        ArrayList result = new Search().SearchMenuCategory(search_item, category);
         
         if (result.size() > 0){
             home.jScrollPane1.setViewportView(new InsideMenu_Category(result, search_item, foodDataBase, home));

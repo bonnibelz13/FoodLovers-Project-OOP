@@ -3,35 +3,19 @@ package code.homeform;
 
 
 import code.model.User;
-import java.util.List;
-
-
-import javax.swing.DefaultListModel;
-
-
-
-import javax.swing.JButton;
-
-import javax.swing.JComboBox;
-
-import javax.swing.JLabel;
-import javax.swing.JList;
-
-import javax.swing.*;
-import javax.swing.JTextArea;
-import javax.swing.JTextField;
-import javax.swing.table.DefaultTableModel;
-
 import code.kao.database.*;
 import code.tableData.ImageRenderer;
-import java.awt.Component;
+
+import java.util.List;
+import java.util.ArrayList;
+
+import javax.swing.DefaultListModel;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-import java.util.ArrayList;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
-
 
 
 
@@ -100,16 +84,11 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
 
         
         
-//        // Initialize the table model
-//        tableModel = (DefaultTableModel) jTable1.getModel();
-        
         // Create an instance of AddMenuModel and AddMenuController
         AddMenuModel model = new AddMenuModel(this);
         controller = new AddMenuController(model, this);
         
-        // Load menu data from file and populate the table
-//        controller.loadMenuFromFile();
-//        tableModel.removeRow(0);
+
     }
     
         
@@ -473,9 +452,6 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         return jTextField2_Ingredients;
     }
 
-//    public DefaultListModel getMod() {
-//        return mod;
-//    }
 
     public JComboBox<String> getjComboBox1_Category() {
         return jComboBox1_Category;

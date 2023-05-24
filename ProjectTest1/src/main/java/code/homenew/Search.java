@@ -26,4 +26,24 @@ public class Search {
         
         return search_result;
     }
+    
+    public ArrayList SearchMenuCategory(String search, ArrayList foodSearch){
+        
+        search_result = new ArrayList();
+        
+        for (int i = 1; i < foodSearch.size(); i++){
+            FoodRecipe food = (FoodRecipe) foodSearch.get(i);
+            
+            System.out.println(search);
+            System.out.println(food.getName());
+            
+            if (search.equals(food.getName())){
+                
+                search_result.add(food);
+                System.out.println(search_result);
+            }
+        }
+        
+        return search_result;
+    }
 }

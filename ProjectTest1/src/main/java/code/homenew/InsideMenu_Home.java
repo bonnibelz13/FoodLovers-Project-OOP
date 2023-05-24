@@ -744,6 +744,7 @@ public class InsideMenu_Home extends javax.swing.JPanel {
         // กำหนดให้ AddMenuGUIForm2 เป็นหน้าต่างที่แสดงผล
         view.setVisible(true);
         view.setSize(1135, 710);
+        view.setLocationRelativeTo(null);
         view.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
         
         view.addWindowListener(new WindowAdapter() {

@@ -3,13 +3,11 @@ package code.homeform;
 
 
 import code.kao.database.FoodDataBase;
-import code.model.User;
 import code.tableData.ImageTableExporter;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import javax.swing.Icon;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -17,6 +15,9 @@ import javax.swing.table.DefaultTableModel;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
 
 public class AddMenuModel {
     private String dishName;

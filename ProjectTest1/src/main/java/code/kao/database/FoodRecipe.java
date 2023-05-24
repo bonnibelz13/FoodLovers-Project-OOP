@@ -91,13 +91,13 @@ public class FoodRecipe extends Food implements Recipe, Serializable {
     @Override
     public String cooking() {
         String template = "Menu: " + name;
-        template += "\n";
+        template += "\n\n";
         template += "Category: " + category;
         template += "\n\n";
         template += "Ingredient";
         template += "\n";
         template += getIngredientDetail();
-        template += "\n";
+        template += "\n\n";
         template += "Cooking";
         template += "\n";
         template += description;

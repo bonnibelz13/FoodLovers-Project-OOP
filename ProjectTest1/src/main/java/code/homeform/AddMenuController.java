@@ -5,18 +5,18 @@ import code.kao.database.FoodDataBase;
 import code.kao.database.FoodRecipe;
 import code.model.User;
 import code.tableData.ImageRenderer;
+
 import java.awt.*;
+
 import java.io.*;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import javax.swing.DefaultListModel;
+
 import javax.swing.*;
 import javax.swing.filechooser.*;
-import javax.swing.table.TableColumn;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.table.TableCellRenderer;
 
 
 public class AddMenuController {
