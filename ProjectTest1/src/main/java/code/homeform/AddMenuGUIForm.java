@@ -537,7 +537,6 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         return jButton1_AddMenu;
     }
 
-    
     public DefaultTableModel getTableModel() {
         return (DefaultTableModel) jTable1.getModel();
     }
