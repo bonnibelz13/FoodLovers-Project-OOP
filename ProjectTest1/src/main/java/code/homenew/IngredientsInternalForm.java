@@ -1,5 +1,5 @@
 
-package code.homeform;
+package code.homenew;
 
 
 
@@ -19,6 +19,7 @@ public class IngredientsInternalForm extends javax.swing.JInternalFrame {
      * Creates new form IngredientsInternalForm
      */
     public IngredientsInternalForm() {
+        
         initComponents();
     }
 

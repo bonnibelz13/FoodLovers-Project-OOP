@@ -25,6 +25,8 @@ public class AddMenuModel {
     private String description;
     private String imagePath;
     private AddMenuGUIForm view;
+    private String username;
+    private FoodDataBase foodDataBase;
     
     
 
@@ -37,7 +39,9 @@ public class AddMenuModel {
         ingredients = new ArrayList<>();
     }
     public AddMenuModel(String userName, FoodDataBase fDB, AddMenuGUIForm view){
-        
+        this.view = view;
+        this.username = userName;
+        this.foodDataBase = fDB;
         
     }
 

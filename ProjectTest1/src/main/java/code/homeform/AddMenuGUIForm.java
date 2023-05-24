@@ -82,6 +82,7 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         ArrayList myRecipe = (ArrayList) foodDataBase.getUserRecipe(userName);
         
         if (myRecipe != null){
+            System.out.println("Call Lopp for create table");
             for (int i = 0; i < myRecipe.size(); i++){
             FoodRecipe food = (FoodRecipe) myRecipe.get(i);
 
@@ -124,16 +125,16 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jComboBox1_Category = new javax.swing.JComboBox<>();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1_Discription = new javax.swing.JTextArea();
-        jButton1_AddMenu = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
+        jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jTextField1_DishName = new javax.swing.JTextField();
         jButton3_UploadPic = new javax.swing.JButton();
-        jLabel4 = new javax.swing.JLabel();
         jLabel2_FoodPic = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jPanel_Table = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jPanel2 = new javax.swing.JPanel();
         jButton_Del = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -141,44 +142,26 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         jList1_Ingredients = new javax.swing.JList<>();
         jLabel1 = new javax.swing.JLabel();
-        jButton1_Import = new javax.swing.JButton();
-        jPanel_Table = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        jLabel4 = new javax.swing.JLabel();
+        jComboBox1_Category = new javax.swing.JComboBox<>();
         jButton1_DeleteMenu = new javax.swing.JButton();
+        jButton1_AddMenu = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTextArea1_Discription = new javax.swing.JTextArea();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(255, 255, 255));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jComboBox1_Category.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jComboBox1_Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category", "Main", "Dessert", "Drink" }));
-        jComboBox1_Category.setToolTipText("");
-        getContentPane().add(jComboBox1_Category, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 200, -1));
+        jPanel4.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jTextArea1_Discription.setColumns(20);
-        jTextArea1_Discription.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jTextArea1_Discription.setRows(5);
-        jTextArea1_Discription.setText("Description");
-        jScrollPane1.setViewportView(jTextArea1_Discription);
-
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(368, 190, 270, 371));
-
-        jButton1_AddMenu.setBackground(new java.awt.Color(255, 49, 49));
-        jButton1_AddMenu.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton1_AddMenu.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1_AddMenu.setText("Add new Menu!");
-        jButton1_AddMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_AddMenuActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1_AddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 580, 190, 50));
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 40, 200, -1));
-
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255, 25));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jTextField1_DishName.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jTextField1_DishName.setToolTipText("");
         jTextField1_DishName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -187,9 +170,8 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         });
         jPanel1.add(jTextField1_DishName, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 270, 264, -1));
 
-        jButton3_UploadPic.setBackground(new java.awt.Color(255, 250, 228));
-        jButton3_UploadPic.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton3_UploadPic.setForeground(new java.awt.Color(166, 166, 166));
+        jButton3_UploadPic.setBackground(new java.awt.Color(204, 204, 255));
+        jButton3_UploadPic.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jButton3_UploadPic.setText("Upload flie");
         jButton3_UploadPic.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -198,92 +180,24 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
         });
         jPanel1.add(jButton3_UploadPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 210, 100, 40));
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel4.setText("Dish Name");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
-
         jLabel2_FoodPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2_FoodPic.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\src\\main\\java\\code\\icon\\img.png")); // NOI18N
         jPanel1.add(jLabel2_FoodPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 260, 190));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 330, 310));
+        jLabel5.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        jLabel5.setText("Dish Name");
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
-        jButton_Del.setBackground(new java.awt.Color(204, 0, 0));
-        jButton_Del.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton_Del.setForeground(new java.awt.Color(255, 255, 255));
-        jButton_Del.setText("-");
-        jButton_Del.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton_DelActionPerformed(evt);
-            }
-        });
+        jPanel4.add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 330, 310));
 
-        jButton2.setBackground(new java.awt.Color(255, 0, 0));
-        jButton2.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("+");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
-        jTextField2_Ingredients.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jTextField2_IngredientsMouseClicked(evt);
-            }
-        });
-
-        jScrollPane2.setViewportView(jList1_Ingredients);
-
-        jLabel1.setFont(new java.awt.Font("sansserif", 1, 12)); // NOI18N
-        jLabel1.setText("Ingredients");
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(12, 12, 12)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(jTextField2_Ingredients, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton_Del, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 10, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton_Del)
-                    .addComponent(jTextField2_Ingredients, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(16, 16, 16))
-        );
-
-        getContentPane().add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 370, 290, 210));
-
-        jButton1_Import.setText("Import");
-        jButton1_Import.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1_ImportActionPerformed(evt);
-            }
-        });
-        getContentPane().add(jButton1_Import, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 590, -1, -1));
+        jPanel_Table.setBackground(new java.awt.Color(255, 255, 255, 25));
+        jPanel_Table.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel2.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
         jLabel2.setText("My Recipes");
+        jPanel_Table.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 138, -1));
 
+        jTable1.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
@@ -309,35 +223,103 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
             jTable1.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        javax.swing.GroupLayout jPanel_TableLayout = new javax.swing.GroupLayout(jPanel_Table);
-        jPanel_Table.setLayout(jPanel_TableLayout);
-        jPanel_TableLayout.setHorizontalGroup(
-            jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_TableLayout.createSequentialGroup()
-                .addGap(55, 55, 55)
-                .addGroup(jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 365, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(40, Short.MAX_VALUE))
-        );
-        jPanel_TableLayout.setVerticalGroup(
-            jPanel_TableLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel_TableLayout.createSequentialGroup()
-                .addComponent(jLabel2)
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 482, Short.MAX_VALUE)
-                .addContainerGap())
-        );
+        jPanel_Table.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 365, 500));
 
-        getContentPane().add(jPanel_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, 460, 530));
+        jPanel4.add(jPanel_Table, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 50, 380, 540));
 
+        jPanel2.setBackground(new java.awt.Color(255, 255, 255, 25));
+        jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jButton_Del.setBackground(new java.awt.Color(138, 82, 229));
+        jButton_Del.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        jButton_Del.setForeground(new java.awt.Color(255, 255, 255));
+        jButton_Del.setText("-");
+        jButton_Del.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton_DelActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton_Del, new org.netbeans.lib.awtextra.AbsoluteConstraints(234, 32, 41, -1));
+
+        jButton2.setBackground(new java.awt.Color(138, 82, 229));
+        jButton2.setFont(new java.awt.Font("Leelawadee UI", 1, 18)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("+");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(188, 32, -1, -1));
+
+        jTextField2_Ingredients.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+        jTextField2_Ingredients.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTextField2_IngredientsMouseClicked(evt);
+            }
+        });
+        jPanel2.add(jTextField2_Ingredients, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 39, 170, -1));
+
+        jList1_Ingredients.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+        jScrollPane2.setViewportView(jList1_Ingredients);
+
+        jPanel2.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 75, 263, 125));
+
+        jLabel1.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        jLabel1.setText("Ingredients");
+        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(12, 6, -1, -1));
+
+        jPanel4.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 390, 290, 210));
+
+        jPanel3.setBackground(new java.awt.Color(255, 255, 255, 200));
+        jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel4.setFont(new java.awt.Font("Leelawadee UI", 0, 18)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(137, 132, 132));
+        jLabel4.setText("How to cook this menu?");
+        jPanel3.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 90, -1, -1));
+
+        jComboBox1_Category.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        jComboBox1_Category.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Select Category", "MainCourse", "Dessert", "Drinks" }));
+        jComboBox1_Category.setToolTipText("");
+        jPanel3.add(jComboBox1_Category, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 40, 200, -1));
+
+        jButton1_DeleteMenu.setBackground(new java.awt.Color(255, 255, 255));
+        jButton1_DeleteMenu.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        jButton1_DeleteMenu.setForeground(new java.awt.Color(102, 102, 102));
         jButton1_DeleteMenu.setText("Delete Menu");
         jButton1_DeleteMenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1_DeleteMenuActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1_DeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 580, 100, 50));
+        jPanel3.add(jButton1_DeleteMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 560, 150, 50));
+
+        jButton1_AddMenu.setBackground(new java.awt.Color(138, 82, 229));
+        jButton1_AddMenu.setFont(new java.awt.Font("Leelawadee UI", 1, 14)); // NOI18N
+        jButton1_AddMenu.setForeground(new java.awt.Color(255, 255, 255));
+        jButton1_AddMenu.setText("Add new Menu!");
+        jButton1_AddMenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1_AddMenuActionPerformed(evt);
+            }
+        });
+        jPanel3.add(jButton1_AddMenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 560, 280, 50));
+
+        jTextArea1_Discription.setColumns(20);
+        jTextArea1_Discription.setFont(new java.awt.Font("Leelawadee UI", 0, 12)); // NOI18N
+        jTextArea1_Discription.setRows(5);
+        jTextArea1_Discription.setText("Description");
+        jScrollPane1.setViewportView(jTextArea1_Discription);
+
+        jPanel3.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 120, 300, 430));
+
+        jPanel4.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 40, 1080, 630));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\เดสก์ท็อป\\tran.gif")); // NOI18N
+        jPanel4.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 1120, 680));
+
+        getContentPane().add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(-20, -20, 1140, 700));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -404,24 +386,6 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     
     
     
-    //-----------------------------------------------
-    // Import data in "data.csv" to Table2.
-    //-----------------------------------------------
-    
-    
-    private void jButton1_ImportActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1_ImportActionPerformed
-        // TODO add your handling code here:
-        
-//        JTable table2 = MenuTable2.getjTable1();
-//        TableDataImporter importer = new TableDataImporter(table2);
-//        try {
-//            importer.importTableDataFromCSV("C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\data.csv");
-//        } catch (CsvValidationException ex) {
-//            Logger.getLogger(AddMenuGUIForm.class.getName()).log(Level.SEVERE, null, ex);
-//        }
-        
-    }//GEN-LAST:event_jButton1_ImportActionPerformed
-
     //--------------------------------------------------------------------------------------------
     // Add new Menu to Table. And export it to File "data.csv" / export picture to folder "pics".
     //--------------------------------------------------------------------------------------------
@@ -550,7 +514,6 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1_AddMenu;
     private javax.swing.JButton jButton1_DeleteMenu;
-    private javax.swing.JButton jButton1_Import;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3_UploadPic;
     private javax.swing.JButton jButton_Del;
@@ -558,11 +521,14 @@ public class AddMenuGUIForm extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel2_FoodPic;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JList<String> jList1_Ingredients;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel_Table;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

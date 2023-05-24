@@ -95,9 +95,11 @@ public class FoodRecipe extends Food implements Recipe, Serializable {
         template += "Category: " + category;
         template += "\n\n";
         template += "Ingredient";
+        template += "\n";
         template += getIngredientDetail();
         template += "\n";
         template += "Cooking";
+        template += "\n";
         template += description;
         
         return template;

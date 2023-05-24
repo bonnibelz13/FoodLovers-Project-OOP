@@ -154,6 +154,7 @@ public class AddMenuController {
             view.getjTable1().getColumnModel().getColumn(4).setPreferredWidth(60);
             view.getjTable1().setRowHeight(60);
             
+            
             try (FileOutputStream fout = new FileOutputStream("FoodDataBase.dat");
                 ObjectOutputStream oout = new ObjectOutputStream(fout)){
                     oout.writeObject(fDB);
