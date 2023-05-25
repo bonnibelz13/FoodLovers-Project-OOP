@@ -77,12 +77,11 @@ public class AddMenuController {
         if (selected == JFileChooser.APPROVE_OPTION) {
             File file = fileChooser.getSelectedFile();
             String getSelectedImage = file.getAbsolutePath();
-            ImageIcon imIco = new ImageIcon(getSelectedImage);
-
+            ImageIcon img = new ImageIcon(getSelectedImage);
+            
             // img to fit the jlabel
-            Image imFit = imIco.getImage();
-            Image imgFit = imFit.getScaledInstance(view.getjLabel2_FoodPic().getWidth(), view.getjLabel2_FoodPic().getHeight(), Image.SCALE_SMOOTH);
-            view.getjLabel2_FoodPic().setIcon(new ImageIcon(imFit));
+            
+            view.getjLabel2_FoodPic().setIcon(new ImageIcon(img.getImage().getScaledInstance(260, 190, Image.SCALE_SMOOTH)));
 
             // Update the image path in the AddMenuModel
             addMenuModel.setImagePath(getSelectedImage);

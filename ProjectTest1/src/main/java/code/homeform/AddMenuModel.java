@@ -3,7 +3,6 @@ package code.homeform;
 
 
 import code.kao.database.FoodDataBase;
-import code.tableData.ImageTableExporter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -92,14 +91,6 @@ public class AddMenuModel {
         model.addRow(new Object[]{dishName, category, ingredients, description, foodPic});
     }
     
-    public void exportImagesInTable() {
-        JTable table = view.getjTable1();
-        int imageColumnIndex = 4; // Index of the column that contains the image
-        String imageFolderPath = "C:\\Users\\baibu\\OneDrive\\Documents\\GitHub\\OOP-Project\\ProjectTest1\\pics"; // Path to the folder where images will be saved
-
-        ImageTableExporter exporter = new ImageTableExporter(table, imageColumnIndex, imageFolderPath);
-        exporter.exportImages();
-    }
     
     public void saveMenuToFile(String fileName) {
         JTable table = view.getjTable1();

@@ -28,14 +28,6 @@ import javax.swing.JOptionPane;
     // LOGINSYSTEM
     // ----------------------------------------------------------------
 
-
-
-
-
-/**
- *
- * @author baibu
- */
 public class LoginSystem {
     private DatabaseReference mDatabase;
     private LoginForm lgf;
@@ -53,7 +45,7 @@ public class LoginSystem {
     //------------------------------------
 
     
-    void loginUser(String username, String password) {
+    public void loginUser(String username, String password) {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
 
         Query usernameQuery = mDatabase.orderByChild("username").equalTo(username);
@@ -72,17 +64,13 @@ public class LoginSystem {
                             //------------------------------------------------------------
 
                             JOptionPane.showMessageDialog(null, "Login Successful!");
-
                             
                             // print user's info.
                             System.out.println(user.getUsername());
                             System.out.println(user.getEmail());
                             System.out.println(user.getId_user());
                             
-                            
-                            
-                            
-                            
+
                             
                             lgf.dispose();
                             
@@ -108,16 +96,7 @@ public class LoginSystem {
                             
                             System.out.println("hi");
                             
-//                            HomeMenuView homeMenu = new HomeMenuView();
-//                            homeMenu.setVisible(true);
-//                            homeMenu.pack();
-//                            homeMenu.setLocationRelativeTo(null);
-//                            homeMenu.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-                            
-                            
-                            // set username on HomeMenuView.
-//                            homeMenu.getjLabel_User().setText(username);
-                            
+
                             
                             // set user info.
                             user.setUsername(username);
@@ -125,9 +104,7 @@ public class LoginSystem {
                             user.setEmail(user.getEmail());
                             user.setId_user(user.getId_user());
                             
-                          
-                            
-                            
+
                             break;
 
                         } else {

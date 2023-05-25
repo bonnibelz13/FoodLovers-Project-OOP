@@ -76,7 +76,7 @@ public class RegistrationSystem {
         });
         
     }
-    void checkData(String email, String username, String password, String conpassword) {
+    public void checkData(String email, String username, String password, String conpassword) {
         mDatabase = FirebaseDatabase.getInstance().getReference().child("Users");
         
 

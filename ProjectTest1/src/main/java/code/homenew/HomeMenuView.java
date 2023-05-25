@@ -38,6 +38,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
         
         jLabel_UserName.setText(name);
         jScrollPane1.setViewportView(new InsideMenu_Home(foodDataBase, userName, this));
+
         this.revalidate();
         this.repaint();
         this.setVisible(true);
@@ -59,7 +60,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
         jPanel21 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel_UserName = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         JLabel_MyRecipes = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
@@ -89,7 +90,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
         jPanel22.setLayout(jPanel22Layout);
         jPanel22Layout.setHorizontalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1042, Short.MAX_VALUE)
+            .addGap(0, 1322, Short.MAX_VALUE)
         );
         jPanel22Layout.setVerticalGroup(
             jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -98,36 +99,38 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
 
         jScrollPane1.setViewportView(jPanel22);
 
-        jPanel21.setBackground(new java.awt.Color(204, 204, 204));
+        jPanel21.setBackground(new java.awt.Color(255, 255, 255, 250));
 
-        jPanel1.setBackground(new java.awt.Color(102, 102, 102));
+        jPanel1.setBackground(new java.awt.Color(165, 113, 249));
 
         jLabel_UserName.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel_UserName.setForeground(new java.awt.Color(255, 255, 255));
         jLabel_UserName.setText("Annonymous User");
 
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Profile");
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\baibu\\OneDrive\\เดสก์ท็อป\\usericon222.png")); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(17, 17, 17)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(jLabel_UserName, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel_UserName)
-                .addGap(17, 17, 17))
+                .addGap(16, 16, 16))
         );
 
         jLabel3.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
@@ -257,7 +260,7 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
                 .addComponent(jSeparator3, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(JLabel_Measuring)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 245, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 236, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addGap(14, 14, 14))
         );
@@ -391,8 +394,8 @@ public class HomeMenuView extends javax.swing.JFrame implements WindowListener {
     private javax.swing.JLabel JLabel_MainCourse;
     private javax.swing.JLabel JLabel_Measuring;
     private javax.swing.JLabel JLabel_MyRecipes;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel_UserName;

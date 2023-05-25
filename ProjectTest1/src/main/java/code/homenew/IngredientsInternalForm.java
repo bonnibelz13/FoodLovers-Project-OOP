@@ -1,12 +1,17 @@
 
 package code.homenew;
 
+import code.kao.database.FoodRecipe;
+import javax.swing.JCheckBox;
+
+
 
 
     // ----------------------------------------------------------------
     // IngredientsInternalForm
     // ----------------------------------------------------------------
 
+    // This use Multiple Document Interface (MDI)
 
 
 /**
@@ -14,13 +19,26 @@ package code.homenew;
  * @author baibu
  */
 public class IngredientsInternalForm extends javax.swing.JInternalFrame {
+    private FoodRecipe foodIn;
 
     /**
      * Creates new form IngredientsInternalForm
      */
-    public IngredientsInternalForm() {
-        
+public IngredientsInternalForm(FoodRecipe food) {
+
         initComponents();
+
+        for (int i = 0; i < food.getIngredient().getModel().getSize(); i++){
+
+            String element = (String) food.getIngredient().getModel().getElementAt(i);
+
+            JCheckBox c = new JCheckBox();
+            c.setText(element);
+
+            jPanel1.add(c);
+            this.revalidate();
+            this.repaint();
+        }
     }
 
     /**
@@ -33,35 +51,29 @@ public class IngredientsInternalForm extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jCheckBox1 = new javax.swing.JCheckBox();
 
         setClosable(true);
         setResizable(true);
-
-        jCheckBox1.setText("jCheckBox1");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jCheckBox1)
-                .addContainerGap(67, Short.MAX_VALUE))
+            .addGap(0, 190, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jCheckBox1)
-                .addContainerGap(220, Short.MAX_VALUE))
+            .addGap(0, 274, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,7 +85,6 @@ public class IngredientsInternalForm extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JCheckBox jCheckBox1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

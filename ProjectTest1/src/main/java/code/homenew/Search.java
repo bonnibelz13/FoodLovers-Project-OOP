@@ -11,7 +11,7 @@ public class Search {
         
         search_result = new ArrayList();
         
-        for (int i = 1; i < foodDataBase.getAllRecipe().size(); i++){
+        for (int i = 0; i < foodDataBase.getAllRecipe().size(); i++){
             FoodRecipe food = (FoodRecipe) foodDataBase.getAllRecipe().get(i);
             
             System.out.println(search);
@@ -31,7 +31,7 @@ public class Search {
         
         search_result = new ArrayList();
         
-        for (int i = 1; i < foodSearch.size(); i++){
+        for (int i = 0; i < foodSearch.size(); i++){
             FoodRecipe food = (FoodRecipe) foodSearch.get(i);
             
             System.out.println(search);

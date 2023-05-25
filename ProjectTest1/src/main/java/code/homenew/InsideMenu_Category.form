@@ -258,6 +258,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic1">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic1MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -301,6 +304,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic2">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic2MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -368,6 +374,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic3">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic3MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -411,6 +420,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic4">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic4MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -430,6 +442,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic5">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic5MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -473,6 +488,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic6">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic6MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -516,6 +534,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic7">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic7MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
@@ -559,6 +580,9 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JLabel" name="pic8">
+              <Events>
+                <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="pic8MouseClicked"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

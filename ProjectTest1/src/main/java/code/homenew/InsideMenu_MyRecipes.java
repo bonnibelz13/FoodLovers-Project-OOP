@@ -15,7 +15,7 @@ import javax.swing.*;
 
 public class InsideMenu_MyRecipes extends javax.swing.JPanel {
 
-    private ArrayList allRecipe, myRecipe, mainCourse, dessert, drinks;
+    private ArrayList allRecipe, myRecipe, mainCourse, dessert, drinks, detail;
     private int page = 1, endPage = 1;
     private FoodDataBase foodDataBase;
     private HomeMenuView home;
@@ -26,12 +26,16 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         this.home = home;
         foodDataBase = fDB;
         myRecipe = fDB.getUserRecipe(name);
+        detail = new ArrayList();
         setDetail();
         jLabelEndPage.setText("/ " + (int) ((myRecipe.size() / 8) + 1));
         userName = name;
+        
     }
     
     public void setDetail(){
+        
+        detail.clear();
         
         if (myRecipe.size() != 0){
             endPage = (int) (myRecipe.size() / 8);
@@ -56,9 +60,11 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
                 menuName[i%8].setText(food.getName());
                 category[i%8].setText(food.getCategory());
                 
+                detail.add(food);
+                
             }
             else {
-                panel[i%8].setBackground(Color.white);
+                panel[i%8].setBackground(null);
                 picture[i%8].setIcon(null);
                 menuName[i%8].setText(" ");
                 category[i%8].setText(" ");
@@ -151,6 +157,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel1B.setText("#MainCourse");
         jLabel1B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        pic1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -161,6 +173,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pic1, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
         );
+
+        pic2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic2MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -193,6 +211,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel3B.setText("#MainCourse");
         jLabel3B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        pic3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic3MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -214,6 +238,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel4A.setText("Fried Rice");
         jLabel4A.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
 
+        pic4.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic4MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -224,6 +254,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(pic4, javax.swing.GroupLayout.DEFAULT_SIZE, 165, Short.MAX_VALUE)
         );
+
+        pic5.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic5MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -246,6 +282,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel5B.setText("#MainCourse");
         jLabel5B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        pic6.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic6MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
@@ -267,6 +309,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel6B.setText("#MainCourse");
         jLabel6B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
+        pic7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic7MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
@@ -287,6 +335,12 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jLabel7B.setForeground(new java.awt.Color(51, 51, 51));
         jLabel7B.setText("#MainCourse");
         jLabel7B.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+
+        pic8.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                pic8MouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
@@ -562,6 +616,62 @@ public class InsideMenu_MyRecipes extends javax.swing.JPanel {
         jTextField_Search.setText("");
         jTextField_Search.setEditable(true);
     }//GEN-LAST:event_jTextField_SearchMouseClicked
+
+    private void pic1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic1MouseClicked
+        if (detail.size() - 1 >= 0){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(0)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic1MouseClicked
+
+    private void pic2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic2MouseClicked
+        if (detail.size() - 1 >= 1){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(1)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic2MouseClicked
+
+    private void pic3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic3MouseClicked
+        if (detail.size() - 1 >= 2){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(2)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic3MouseClicked
+
+    private void pic4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic4MouseClicked
+        if (detail.size() - 1 >= 3){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(3)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic4MouseClicked
+
+    private void pic5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic5MouseClicked
+        if (detail.size() - 1 >= 4){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(4)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic5MouseClicked
+
+    private void pic6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic6MouseClicked
+        if (detail.size() - 1 >= 5){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(5)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic6MouseClicked
+
+    private void pic7MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic7MouseClicked
+        if (detail.size() - 1 >= 6){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(6)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic7MouseClicked
+
+    private void pic8MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pic8MouseClicked
+        if (detail.size() - 1 >= 7){
+            System.out.println("menu detail");
+            new MenuDetail((FoodRecipe) detail.get(7)).setVisible(true);
+        }
+    }//GEN-LAST:event_pic8MouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
